@@ -1,0 +1,1166 @@
+{
+  "aero_pitch_sensitivity": {
+    "V=11": {
+      "ct_base": 0.628935793,
+      "dP_dpitch_MW_per_deg": -0.17655394589801504,
+      "dT_dpitch_kN_per_deg": -187.21719475884643
+    },
+    "V=14": {
+      "ct_base": 0.2604020112,
+      "dP_dpitch_MW_per_deg": -2.340447971393768,
+      "dT_dpitch_kN_per_deg": -228.17360225912742
+    },
+    "V=18": {
+      "ct_base": 0.120146809,
+      "dP_dpitch_MW_per_deg": -3.3404429496260546,
+      "dT_dpitch_kN_per_deg": -226.10956674012215
+    },
+    "V=22": {
+      "ct_base": 0.06731093785,
+      "dP_dpitch_MW_per_deg": -4.205028318307727,
+      "dT_dpitch_kN_per_deg": -226.0566787127714
+    },
+    "V=6": {
+      "ct_base": 0.8399047347,
+      "dP_dpitch_MW_per_deg": 0.0,
+      "dT_dpitch_kN_per_deg": -56.58945689831045
+    },
+    "V=9": {
+      "ct_base": 0.8000354484,
+      "dP_dpitch_MW_per_deg": 0.0,
+      "dT_dpitch_kN_per_deg": -111.53648958067502
+    }
+  },
+  "aero_reference_check": {
+    "cp_mean_abs_rel_error": 0.2827971180784903,
+    "cp_pearson_r": 0.9873965302318293,
+    "ct_mean_abs_rel_error": 0.2759915223543093,
+    "ct_pearson_r": 0.9941763034042778,
+    "n_operating_points": 22
+  },
+  "build_seconds": 17.03,
+  "calibration": {
+    "opt1": {
+      "basis_names": [
+        "thrust_turbulence",
+        "rotor_cyclic",
+        "wave_quasistatic",
+        "wave_inertial"
+      ],
+      "basis_scale": [
+        519691.53293100087,
+        1639633.4818614423,
+        3.6142181369081205,
+        0.02565792073839898
+      ],
+      "controllable_share": {
+        "mean": 0.3226213119172773,
+        "mean_section_1_base": 0.36520972000044016,
+        "mean_section_30_top": 0.12421091459791671,
+        "p05": 0.012657268440607277,
+        "p50": 0.20559324204954343,
+        "p95": 0.8777447292889057
+      },
+      "fa1_hz": 0.573,
+      "fit_quality": {
+        "del_median_abs_rel_error": 0.1250900789443612,
+        "max_r2_del": 0.7992663850083439,
+        "mean_r2_damage": 0.6943737326031966,
+        "mean_r2_del": 0.793149533148415,
+        "min_r2_del": 0.7605415523341157,
+        "r2_del_section_1_base": 0.7990005595076717,
+        "r2_del_section_30_top": 0.7605415523341157
+      },
+      "hyperparameter_sweep": [
+        {
+          "damping_ratio": 0.005,
+          "mean_r2_damage": 0.7183136851477753,
+          "mean_r2_del": 0.7780299394589195,
+          "weight_exponent": 0.0
+        },
+        {
+          "damping_ratio": 0.005,
+          "mean_r2_damage": 0.714551853721819,
+          "mean_r2_del": 0.7868597203159872,
+          "weight_exponent": 0.16666666666666666
+        },
+        {
+          "damping_ratio": 0.005,
+          "mean_r2_damage": 0.6943737326031966,
+          "mean_r2_del": 0.793149533148415,
+          "weight_exponent": 0.3333333333333333
+        },
+        {
+          "damping_ratio": 0.005,
+          "mean_r2_damage": 0.650392897727295,
+          "mean_r2_del": 0.7772083904135758,
+          "weight_exponent": 0.5
+        },
+        {
+          "damping_ratio": 0.005,
+          "mean_r2_damage": 0.5364458422749793,
+          "mean_r2_del": 0.6976057855933885,
+          "weight_exponent": 0.6666666666666666
+        },
+        {
+          "damping_ratio": 0.01,
+          "mean_r2_damage": 0.7183136020973494,
+          "mean_r2_del": 0.77802973248842,
+          "weight_exponent": 0.0
+        },
+        {
+          "damping_ratio": 0.01,
+          "mean_r2_damage": 0.714551756559803,
+          "mean_r2_del": 0.786859534468506,
+          "weight_exponent": 0.16666666666666666
+        },
+        {
+          "damping_ratio": 0.01,
+          "mean_r2_damage": 0.6943735203781286,
+          "mean_r2_del": 0.7931493654236083,
+          "weight_exponent": 0.3333333333333333
+        },
+        {
+          "damping_ratio": 0.01,
+          "mean_r2_damage": 0.6503924549048478,
+          "mean_r2_del": 0.7772082009778402,
+          "weight_exponent": 0.5
+        },
+        {
+          "damping_ratio": 0.01,
+          "mean_r2_damage": 0.5364464021810721,
+          "mean_r2_del": 0.6976061905376097,
+          "weight_exponent": 0.6666666666666666
+        },
+        {
+          "damping_ratio": 0.02,
+          "mean_r2_damage": 0.7183132698929519,
+          "mean_r2_del": 0.7780289046106732,
+          "weight_exponent": 0.0
+        },
+        {
+          "damping_ratio": 0.02,
+          "mean_r2_damage": 0.7145513679092131,
+          "mean_r2_del": 0.7868587910812004,
+          "weight_exponent": 0.16666666666666666
+        },
+        {
+          "damping_ratio": 0.02,
+          "mean_r2_damage": 0.694372671475801,
+          "mean_r2_del": 0.7931486945211671,
+          "weight_exponent": 0.3333333333333333
+        },
+        {
+          "damping_ratio": 0.02,
+          "mean_r2_damage": 0.6503906835594695,
+          "mean_r2_del": 0.7772074431875875,
+          "weight_exponent": 0.5
+        },
+        {
+          "damping_ratio": 0.02,
+          "mean_r2_damage": 0.5364486413260247,
+          "mean_r2_del": 0.6976078099963465,
+          "weight_exponent": 0.6666666666666666
+        },
+        {
+          "damping_ratio": 0.05,
+          "mean_r2_damage": 0.7183109443416631,
+          "mean_r2_del": 0.7780231096574011,
+          "weight_exponent": 0.0
+        },
+        {
+          "damping_ratio": 0.05,
+          "mean_r2_damage": 0.7145486472421289,
+          "mean_r2_del": 0.786853587487839,
+          "weight_exponent": 0.16666666666666666
+        },
+        {
+          "damping_ratio": 0.05,
+          "mean_r2_damage": 0.6943667290679159,
+          "mean_r2_del": 0.7931439980606139,
+          "weight_exponent": 0.3333333333333333
+        },
+        {
+          "damping_ratio": 0.05,
+          "mean_r2_damage": 0.6503782816542947,
+          "mean_r2_del": 0.7772021365383538,
+          "weight_exponent": 0.5
+        },
+        {
+          "damping_ratio": 0.05,
+          "mean_r2_damage": 0.5364642938766657,
+          "mean_r2_del": 0.6976191319637246,
+          "weight_exponent": 0.6666666666666666
+        },
+        {
+          "damping_ratio": 0.1,
+          "mean_r2_damage": 0.718302637089916,
+          "mean_r2_del": 0.778002416152877,
+          "weight_exponent": 0.0
+        },
+        {
+          "damping_ratio": 0.1,
+          "mean_r2_damage": 0.714538928972283,
+          "mean_r2_del": 0.7868350049359597,
+          "weight_exponent": 0.16666666666666666
+        },
+        {
+          "damping_ratio": 0.1,
+          "mean_r2_damage": 0.6943455049022185,
+          "mean_r2_del": 0.7931272229700258,
+          "weight_exponent": 0.3333333333333333
+        },
+        {
+          "damping_ratio": 0.1,
+          "mean_r2_damage": 0.6503339537617915,
+          "mean_r2_del": 0.7771831540808702,
+          "weight_exponent": 0.5
+        },
+        {
+          "damping_ratio": 0.1,
+          "mean_r2_damage": 0.5365198900054337,
+          "mean_r2_del": 0.6976593646048779,
+          "weight_exponent": 0.6666666666666666
+        },
+        {
+          "damping_ratio": 0.2,
+          "mean_r2_damage": 0.7182693819679087,
+          "mean_r2_del": 0.7779196870154442,
+          "weight_exponent": 0.0
+        },
+        {
+          "damping_ratio": 0.2,
+          "mean_r2_damage": 0.7145000316070308,
+          "mean_r2_del": 0.7867607031466038,
+          "weight_exponent": 0.16666666666666666
+        },
+        {
+          "damping_ratio": 0.2,
+          "mean_r2_damage": 0.6942605899679763,
+          "mean_r2_del": 0.7930600930848495,
+          "weight_exponent": 0.3333333333333333
+        },
+        {
+          "damping_ratio": 0.2,
+          "mean_r2_damage": 0.6501560994947748,
+          "mean_r2_del": 0.7771067601820794,
+          "weight_exponent": 0.5
+        },
+        {
+          "damping_ratio": 0.2,
+          "mean_r2_damage": 0.5367375447855292,
+          "mean_r2_del": 0.6978171565314867,
+          "weight_exponent": 0.6666666666666666
+        }
+      ],
+      "n_conditions": 6468,
+      "n_sections": 30,
+      "path_share_mean": {
+        "rotor_cyclic": 0.27323335314090075,
+        "thrust_turbulence": 0.049387958776376445,
+        "wave_inertial": 0.1613264890563834,
+        "wave_quasistatic": 0.5160521990263395
+      },
+      "selected_damping_ratio": 0.005,
+      "selected_weight_exponent": 0.3333333333333333,
+      "tower": "opt1",
+      "wohler_exponent": 3.0
+    },
+    "opt2": {
+      "basis_names": [
+        "thrust_turbulence",
+        "rotor_cyclic",
+        "wave_quasistatic",
+        "wave_inertial"
+      ],
+      "basis_scale": [
+        519691.53293100087,
+        1639633.4818614423,
+        3.625656504856732,
+        0.02565792073839898
+      ],
+      "controllable_share": {
+        "mean": 0.30778275265805216,
+        "mean_section_1_base": 0.35710625577038363,
+        "mean_section_30_top": 0.09009041122540304,
+        "p05": 0.011250329386072623,
+        "p50": 0.1869299969273459,
+        "p95": 0.8648269067341905
+      },
+      "fa1_hz": 0.537,
+      "fit_quality": {
+        "del_median_abs_rel_error": 0.12178593611891647,
+        "max_r2_del": 0.8113141312091378,
+        "mean_r2_damage": 0.7157777582243343,
+        "mean_r2_del": 0.8024011924517551,
+        "min_r2_del": 0.7600561887818109,
+        "r2_del_section_1_base": 0.8084457262326206,
+        "r2_del_section_30_top": 0.7600561887818109
+      },
+      "hyperparameter_sweep": [
+        {
+          "damping_ratio": 0.005,
+          "mean_r2_damage": 0.7371606078126792,
+          "mean_r2_del": 0.7876959775230792,
+          "weight_exponent": 0.0
+        },
+        {
+          "damping_ratio": 0.005,
+          "mean_r2_damage": 0.7338011256538535,
+          "mean_r2_del": 0.7961899250673639,
+          "weight_exponent": 0.16666666666666666
+        },
+        {
+          "damping_ratio": 0.005,
+          "mean_r2_damage": 0.7157777582243343,
+          "mean_r2_del": 0.8024011924517551,
+          "weight_exponent": 0.3333333333333333
+        },
+        {
+          "damping_ratio": 0.005,
+          "mean_r2_damage": 0.6734084202418411,
+          "mean_r2_del": 0.7875249768957296,
+          "weight_exponent": 0.5
+        },
+        {
+          "damping_ratio": 0.005,
+          "mean_r2_damage": 0.5638484816037096,
+          "mean_r2_del": 0.7094471252240473,
+          "weight_exponent": 0.6666666666666666
+        },
+        {
+          "damping_ratio": 0.01,
+          "mean_r2_damage": 0.7371605125444919,
+          "mean_r2_del": 0.7876957396692555,
+          "weight_exponent": 0.0
+        },
+        {
+          "damping_ratio": 0.01,
+          "mean_r2_damage": 0.7338010147715296,
+          "mean_r2_del": 0.7961897116803218,
+          "weight_exponent": 0.16666666666666666
+        },
+        {
+          "damping_ratio": 0.01,
+          "mean_r2_damage": 0.7157775110805656,
+          "mean_r2_del": 0.8024010059151151,
+          "weight_exponent": 0.3333333333333333
+        },
+        {
+          "damping_ratio": 0.01,
+          "mean_r2_damage": 0.6734080035889382,
+          "mean_r2_del": 0.7875247861138628,
+          "weight_exponent": 0.5
+        },
+        {
+          "damping_ratio": 0.01,
+          "mean_r2_damage": 0.5638488562466276,
+          "mean_r2_del": 0.7094475078659475,
+          "weight_exponent": 0.6666666666666666
+        },
+        {
+          "damping_ratio": 0.02,
+          "mean_r2_damage": 0.7371601314678078,
+          "mean_r2_del": 0.7876947882580585,
+          "weight_exponent": 0.0
+        },
+        {
+          "damping_ratio": 0.02,
+          "mean_r2_damage": 0.733800571238429,
+          "mean_r2_del": 0.7961888581342094,
+          "weight_exponent": 0.16666666666666666
+        },
+        {
+          "damping_ratio": 0.02,
+          "mean_r2_damage": 0.7157765225016882,
+          "mean_r2_del": 0.8024002597587608,
+          "weight_exponent": 0.3333333333333333
+        },
+        {
+          "damping_ratio": 0.02,
+          "mean_r2_damage": 0.6734063368927165,
+          "mean_r2_del": 0.7875240229249962,
+          "weight_exponent": 0.5
+        },
+        {
+          "damping_ratio": 0.02,
+          "mean_r2_damage": 0.56385035429287,
+          "mean_r2_del": 0.7094490380438212,
+          "weight_exponent": 0.6666666666666666
+        },
+        {
+          "damping_ratio": 0.05,
+          "mean_r2_damage": 0.7371574637550361,
+          "mean_r2_del": 0.7876881285640721,
+          "weight_exponent": 0.0
+        },
+        {
+          "damping_ratio": 0.05,
+          "mean_r2_damage": 0.733797466336592,
+          "mean_r2_del": 0.7961828834043716,
+          "weight_exponent": 0.16666666666666666
+        },
+        {
+          "damping_ratio": 0.05,
+          "mean_r2_damage": 0.7157696022799688,
+          "mean_r2_del": 0.8023950362265259,
+          "weight_exponent": 0.3333333333333333
+        },
+        {
+          "damping_ratio": 0.05,
+          "mean_r2_damage": 0.6733946662330383,
+          "mean_r2_del": 0.7875186778551385,
+          "weight_exponent": 0.5
+        },
+        {
+          "damping_ratio": 0.05,
+          "mean_r2_damage": 0.5638608170952609,
+          "mean_r2_del": 0.7094597318422003,
+          "weight_exponent": 0.6666666666666666
+        },
+        {
+          "damping_ratio": 0.1,
+          "mean_r2_damage": 0.7371479337113841,
+          "mean_r2_del": 0.787664346624536,
+          "weight_exponent": 0.0
+        },
+        {
+          "damping_ratio": 0.1,
+          "mean_r2_damage": 0.7337863749898986,
+          "mean_r2_del": 0.7961615464561809,
+          "weight_exponent": 0.16666666666666666
+        },
+        {
+          "damping_ratio": 0.1,
+          "mean_r2_damage": 0.7157448848244164,
+          "mean_r2_del": 0.8023763745593375,
+          "weight_exponent": 0.3333333333333333
+        },
+        {
+          "damping_ratio": 0.1,
+          "mean_r2_damage": 0.6733529314717855,
+          "mean_r2_del": 0.7874995492298802,
+          "weight_exponent": 0.5
+        },
+        {
+          "damping_ratio": 0.1,
+          "mean_r2_damage": 0.5638978492538519,
+          "mean_r2_del": 0.7094976754845611,
+          "weight_exponent": 0.6666666666666666
+        },
+        {
+          "damping_ratio": 0.2,
+          "mean_r2_damage": 0.7371097754945739,
+          "mean_r2_del": 0.7875692637024051,
+          "weight_exponent": 0.0
+        },
+        {
+          "damping_ratio": 0.2,
+          "mean_r2_damage": 0.7337419730896956,
+          "mean_r2_del": 0.7960762228695432,
+          "weight_exponent": 0.16666666666666666
+        },
+        {
+          "damping_ratio": 0.2,
+          "mean_r2_damage": 0.7156459805948522,
+          "mean_r2_del": 0.8023016347153888,
+          "weight_exponent": 0.3333333333333333
+        },
+        {
+          "damping_ratio": 0.2,
+          "mean_r2_damage": 0.6731851669364991,
+          "mean_r2_del": 0.787422434083316,
+          "weight_exponent": 0.5
+        },
+        {
+          "damping_ratio": 0.2,
+          "mean_r2_damage": 0.5640408070329873,
+          "mean_r2_del": 0.7096456133380363,
+          "weight_exponent": 0.6666666666666666
+        }
+      ],
+      "n_conditions": 6468,
+      "n_sections": 30,
+      "path_share_mean": {
+        "rotor_cyclic": 0.26673581781576966,
+        "thrust_turbulence": 0.04104693484228247,
+        "wave_inertial": 0.17255742471852858,
+        "wave_quasistatic": 0.5196598226234194
+      },
+      "selected_damping_ratio": 0.005,
+      "selected_weight_exponent": 0.3333333333333333,
+      "tower": "opt2",
+      "wohler_exponent": 3.0
+    },
+    "ref": {
+      "basis_names": [
+        "thrust_turbulence",
+        "rotor_cyclic",
+        "wave_quasistatic",
+        "wave_inertial"
+      ],
+      "basis_scale": [
+        519691.53293100087,
+        1639633.4818614423,
+        3.7794576365078023,
+        0.02565792073839898
+      ],
+      "controllable_share": {
+        "mean": 0.21108311766858756,
+        "mean_section_1_base": 0.21524893957975377,
+        "mean_section_30_top": 0.17377213157533863,
+        "p05": 0.006479462767678286,
+        "p50": 0.09482065908242773,
+        "p95": 0.7258344999885097
+      },
+      "fa1_hz": 0.336,
+      "fit_quality": {
+        "del_median_abs_rel_error": 0.179702407802454,
+        "max_r2_del": 0.7750315639003196,
+        "mean_r2_damage": 0.553101389064005,
+        "mean_r2_del": 0.731692215214763,
+        "min_r2_del": 0.7201678402353746,
+        "r2_del_section_1_base": 0.7318284735401477,
+        "r2_del_section_30_top": 0.7750315639003196
+      },
+      "hyperparameter_sweep": [
+        {
+          "damping_ratio": 0.005,
+          "mean_r2_damage": 0.5964282237533538,
+          "mean_r2_del": 0.7079821941192976,
+          "weight_exponent": 0.0
+        },
+        {
+          "damping_ratio": 0.005,
+          "mean_r2_damage": 0.5896158510438281,
+          "mean_r2_del": 0.7231423476975674,
+          "weight_exponent": 0.16666666666666666
+        },
+        {
+          "damping_ratio": 0.005,
+          "mean_r2_damage": 0.553101389064005,
+          "mean_r2_del": 0.731692215214763,
+          "weight_exponent": 0.3333333333333333
+        },
+        {
+          "damping_ratio": 0.005,
+          "mean_r2_damage": 0.49129934901242217,
+          "mean_r2_del": 0.7099562761246765,
+          "weight_exponent": 0.5
+        },
+        {
+          "damping_ratio": 0.005,
+          "mean_r2_damage": 0.40930476383202585,
+          "mean_r2_del": 0.6386526402490798,
+          "weight_exponent": 0.6666666666666666
+        },
+        {
+          "damping_ratio": 0.01,
+          "mean_r2_damage": 0.596428025613772,
+          "mean_r2_del": 0.7079816272293695,
+          "weight_exponent": 0.0
+        },
+        {
+          "damping_ratio": 0.01,
+          "mean_r2_damage": 0.5896156062894522,
+          "mean_r2_del": 0.7231417704407739,
+          "weight_exponent": 0.16666666666666666
+        },
+        {
+          "damping_ratio": 0.01,
+          "mean_r2_damage": 0.5531006840477437,
+          "mean_r2_del": 0.7316916091769851,
+          "weight_exponent": 0.3333333333333333
+        },
+        {
+          "damping_ratio": 0.01,
+          "mean_r2_damage": 0.49129702738185177,
+          "mean_r2_del": 0.7099553287145997,
+          "weight_exponent": 0.5
+        },
+        {
+          "damping_ratio": 0.01,
+          "mean_r2_damage": 0.4093062220582455,
+          "mean_r2_del": 0.6386540248919471,
+          "weight_exponent": 0.6666666666666666
+        },
+        {
+          "damping_ratio": 0.02,
+          "mean_r2_damage": 0.5964272329892708,
+          "mean_r2_del": 0.7079793595316183,
+          "weight_exponent": 0.0
+        },
+        {
+          "damping_ratio": 0.02,
+          "mean_r2_damage": 0.5896146271966216,
+          "mean_r2_del": 0.7231394612575133,
+          "weight_exponent": 0.16666666666666666
+        },
+        {
+          "damping_ratio": 0.02,
+          "mean_r2_damage": 0.5530978638042306,
+          "mean_r2_del": 0.7316891847837986,
+          "weight_exponent": 0.3333333333333333
+        },
+        {
+          "damping_ratio": 0.02,
+          "mean_r2_damage": 0.4912877403293685,
+          "mean_r2_del": 0.7099515381908797,
+          "weight_exponent": 0.5
+        },
+        {
+          "damping_ratio": 0.02,
+          "mean_r2_damage": 0.40931204756810363,
+          "mean_r2_del": 0.6386595584318117,
+          "weight_exponent": 0.6666666666666666
+        },
+        {
+          "damping_ratio": 0.05,
+          "mean_r2_damage": 0.5964216816647661,
+          "mean_r2_del": 0.7079634795049768,
+          "weight_exponent": 0.0
+        },
+        {
+          "damping_ratio": 0.05,
+          "mean_r2_damage": 0.5896077701868111,
+          "mean_r2_del": 0.7231232900256882,
+          "weight_exponent": 0.16666666666666666
+        },
+        {
+          "damping_ratio": 0.05,
+          "mean_r2_damage": 0.5530781141487118,
+          "mean_r2_del": 0.7316722032398374,
+          "weight_exponent": 0.3333333333333333
+        },
+        {
+          "damping_ratio": 0.05,
+          "mean_r2_damage": 0.49122270735025975,
+          "mean_r2_del": 0.7099249650787152,
+          "weight_exponent": 0.5
+        },
+        {
+          "damping_ratio": 0.05,
+          "mean_r2_damage": 0.40935249571593946,
+          "mean_r2_del": 0.6386980683609901,
+          "weight_exponent": 0.6666666666666666
+        },
+        {
+          "damping_ratio": 0.1,
+          "mean_r2_damage": 0.596401813975614,
+          "mean_r2_del": 0.7079066797410019,
+          "weight_exponent": 0.0
+        },
+        {
+          "damping_ratio": 0.1,
+          "mean_r2_damage": 0.5895832336954875,
+          "mean_r2_del": 0.723065438825111,
+          "weight_exponent": 0.16666666666666666
+        },
+        {
+          "damping_ratio": 0.1,
+          "mean_r2_damage": 0.5530111551703566,
+          "mean_r2_del": 0.731610654910262,
+          "weight_exponent": 0.3333333333333333
+        },
+        {
+          "damping_ratio": 0.1,
+          "mean_r2_damage": 0.4909983930659431,
+          "mean_r2_del": 0.7098318000769274,
+          "weight_exponent": 0.5
+        },
+        {
+          "damping_ratio": 0.1,
+          "mean_r2_damage": 0.409492282650957,
+          "mean_r2_del": 0.6388324237226091,
+          "weight_exponent": 0.6666666666666666
+        },
+        {
+          "damping_ratio": 0.2,
+          "mean_r2_damage": 0.596321733785582,
+          "mean_r2_del": 0.7076782879324278,
+          "weight_exponent": 0.0
+        },
+        {
+          "damping_ratio": 0.2,
+          "mean_r2_damage": 0.589484400583284,
+          "mean_r2_del": 0.7228326691785217,
+          "weight_exponent": 0.16666666666666666
+        },
+        {
+          "damping_ratio": 0.2,
+          "mean_r2_damage": 0.552747632982467,
+          "mean_r2_del": 0.731361414333452,
+          "weight_exponent": 0.3333333333333333
+        },
+        {
+          "damping_ratio": 0.2,
+          "mean_r2_damage": 0.49009940801592183,
+          "mean_r2_del": 0.7094520124312562,
+          "weight_exponent": 0.5
+        },
+        {
+          "damping_ratio": 0.2,
+          "mean_r2_damage": 0.4099814335297284,
+          "mean_r2_del": 0.6393220861554542,
+          "weight_exponent": 0.6666666666666666
+        }
+      ],
+      "n_conditions": 6468,
+      "n_sections": 30,
+      "path_share_mean": {
+        "rotor_cyclic": 0.21108311766858756,
+        "thrust_turbulence": 0.0,
+        "wave_inertial": 0.21253974475107873,
+        "wave_quasistatic": 0.5763771375803338
+      },
+      "selected_damping_ratio": 0.005,
+      "selected_weight_exponent": 0.3333333333333333,
+      "tower": "ref",
+      "wohler_exponent": 3.0
+    }
+  },
+  "dataset_summary": {
+    "behaviour_policy_counts": {
+      "baseline": 25524,
+      "feather": 20340,
+      "ipc_only": 19800,
+      "random": 51084,
+      "yaw_seeker": 12852
+    },
+    "controllable_share_max_section": {
+      "mean": 0.3133043050765991,
+      "p05": 0.012846864759922028,
+      "p95": 0.8702789545059204
+    },
+    "del_ratio": {
+      "max": 1.3170042037963867,
+      "median": 0.9985703229904175,
+      "min": 0.5237601399421692,
+      "p05": 0.8439375936985016
+    },
+    "episodes": 3600,
+    "reward": {
+      "fraction_positive": 0.19739969135802468,
+      "max": 0.7068828344345093,
+      "mean": -0.15198419988155365,
+      "min": -1.0257551670074463,
+      "std": 0.29411983489990234
+    },
+    "simulated_hours": 21600.0,
+    "step_seconds": 600.0,
+    "steps_per_episode": 36,
+    "total_transitions": 129600,
+    "towers": [
+      "opt1",
+      "opt2",
+      "ref"
+    ]
+  },
+  "generated_utc": "2026-08-26T04:30:17Z",
+  "observation_manifest": {
+    "actions": [
+      "action_pitch_offset_deg",
+      "action_yaw_setpoint_deg",
+      "action_ipc_level"
+    ],
+    "ground_truth_observation": [
+      "true_wind_speed",
+      "true_turbulence_std",
+      "true_wind_direction",
+      "true_wave_hs",
+      "true_wave_tp",
+      "true_thrust",
+      "true_power",
+      "true_tower_damage_rate"
+    ],
+    "measured_observation": [
+      "meas_wind_speed",
+      "meas_turbulence_std",
+      "meas_wind_direction",
+      "meas_wave_hs",
+      "meas_wave_tp",
+      "meas_thrust",
+      "meas_power",
+      "meas_tower_damage_rate"
+    ],
+    "measurement_validity": [
+      "valid_wind_speed",
+      "valid_turbulence_std",
+      "valid_wind_direction",
+      "valid_wave_hs",
+      "valid_wave_tp",
+      "valid_thrust",
+      "valid_power",
+      "valid_tower_damage_rate",
+      "sensor_health"
+    ],
+    "next_ground_truth_observation": [
+      "next_true_wind_speed",
+      "next_true_turbulence_std",
+      "next_true_wind_direction",
+      "next_true_wave_hs",
+      "next_true_wave_tp",
+      "next_true_thrust",
+      "next_true_power",
+      "next_true_tower_damage_rate"
+    ],
+    "note": "Train policies on measured_observation + measurement_validity + proprioceptive_observation. The ground_truth and privileged columns exist for evaluation and ablation only; using them at training time leaks information no real controller would have.",
+    "privileged_diagnostics": [
+      "damage_controlled",
+      "damage_baseline",
+      "damage_ratio",
+      "del_ratio",
+      "controllable_share_max_section",
+      "controllable_share_mean",
+      "inflow_direction_deg",
+      "vane_bias_deg",
+      "gain_thrust_turbulence",
+      "gain_rotor_cyclic"
+    ],
+    "proprioceptive_observation": [
+      "prev_pitch_offset_deg",
+      "prev_yaw_setpoint_deg",
+      "prev_ipc_level",
+      "nacelle_yaw_deg",
+      "yaw_error_deg",
+      "cumulative_damage_fraction",
+      "step_fraction"
+    ],
+    "reward": [
+      "reward"
+    ],
+    "reward_terms": [
+      "reward_fatigue_relief",
+      "reward_severity",
+      "reward_fatigue_term",
+      "reward_power_loss_fraction",
+      "reward_duty_total"
+    ],
+    "termination": [
+      "done"
+    ]
+  },
+  "outputs": {
+    "action_sweep": {
+      "opt1": {
+        "bytes": 7851161,
+        "columns": 27,
+        "path": "data/processed/action_sweep/action_sweep_opt1.parquet",
+        "rows": 485100
+      },
+      "opt2": {
+        "bytes": 7851255,
+        "columns": 27,
+        "path": "data/processed/action_sweep/action_sweep_opt2.parquet",
+        "rows": 485100
+      },
+      "ref": {
+        "bytes": 7873226,
+        "columns": 27,
+        "path": "data/processed/action_sweep/action_sweep_ref.parquet",
+        "rows": 485100
+      }
+    },
+    "samples": {
+      "action_sweep": {
+        "bytes": 424949,
+        "path": "data/processed/samples/action_sweep_sample.csv",
+        "rows": 2000
+      },
+      "transitions": {
+        "bytes": 1434094,
+        "path": "data/processed/samples/transitions_sample.csv",
+        "rows": 2000
+      }
+    },
+    "transitions": {
+      "opt1": {
+        "bytes": 9416769,
+        "checks": {
+          "action_ipc_level_within_bounds": true,
+          "action_pitch_offset_deg_within_bounds": true,
+          "action_yaw_setpoint_deg_within_bounds": true,
+          "episodes_with_single_done": true,
+          "failures": [],
+          "max_controllable_share_violation": 0.0,
+          "max_reward_decomposition_error": 0.0,
+          "missing_measured_channels": [],
+          "n_nan_numeric": 0,
+          "passed": true
+        },
+        "columns": 89,
+        "mean_reward_by_policy": {
+          "baseline": -0.029694000259041786,
+          "feather": -0.23269400000572205,
+          "ipc_only": 0.029047999531030655,
+          "random": -0.2658640146255493,
+          "yaw_seeker": -0.08294399827718735
+        },
+        "path": "data/processed/transitions/transitions_opt1.parquet",
+        "rows": 43200,
+        "sensor_error": {
+          "power": {
+            "bias": -524.1778154811153,
+            "dropout_rate": 0.0018287037037036935,
+            "instrument": "SCADA power transducer",
+            "median_abs_rel_error": 0.003349299384407014,
+            "rmse": 252612.54659670917
+          },
+          "thrust": {
+            "bias": -247.77124928564936,
+            "dropout_rate": 0.004513888888888928,
+            "instrument": "estimated from strain gauges and rotor state",
+            "median_abs_rel_error": 0.02876984707219247,
+            "rmse": 66566.07358140612
+          },
+          "tower_damage_rate": {
+            "bias": -1.0362979441994458e-09,
+            "dropout_rate": 0.009745370370370376,
+            "instrument": "tower-base strain gauge rosette",
+            "median_abs_rel_error": 0.04079542329491715,
+            "rmse": 2.330819340059187e-07
+          },
+          "turbulence_std": {
+            "bias": -0.0037210740921673952,
+            "dropout_rate": 0.010393518518518552,
+            "instrument": "derived from anemometer time series",
+            "median_abs_rel_error": 0.1228546369660869,
+            "rmse": 0.3752000043278015
+          },
+          "wave_hs": {
+            "bias": 0.001423867749809115,
+            "dropout_rate": 0.01981481481481484,
+            "instrument": "wave radar / nearby buoy",
+            "median_abs_rel_error": 0.08136011150478313,
+            "rmse": 0.419354614499651
+          },
+          "wave_tp": {
+            "bias": 0.0034137257271342806,
+            "dropout_rate": 0.019884259259259296,
+            "instrument": "wave radar spectral estimate",
+            "median_abs_rel_error": 0.04831984381334242,
+            "rmse": 0.8196963383907613
+          },
+          "wind_direction": {
+            "bias": 0.010935549041454646,
+            "dropout_rate": 0.004444444444444473,
+            "instrument": "nacelle wind vane",
+            "median_abs_rel_error": 0.302003322169254,
+            "rmse": 3.6450131359895726
+          },
+          "wind_speed": {
+            "bias": -0.01068051865807286,
+            "dropout_rate": 0.00462962962962965,
+            "instrument": "nacelle cup anemometer / met mast",
+            "median_abs_rel_error": 0.03276550515440864,
+            "rmse": 0.6457204731505402
+          }
+        }
+      },
+      "opt2": {
+        "bytes": 9400466,
+        "checks": {
+          "action_ipc_level_within_bounds": true,
+          "action_pitch_offset_deg_within_bounds": true,
+          "action_yaw_setpoint_deg_within_bounds": true,
+          "episodes_with_single_done": true,
+          "failures": [],
+          "max_controllable_share_violation": 0.0,
+          "max_reward_decomposition_error": 0.0,
+          "missing_measured_channels": [],
+          "n_nan_numeric": 0,
+          "passed": true
+        },
+        "columns": 89,
+        "mean_reward_by_policy": {
+          "baseline": -0.03679199889302254,
+          "feather": -0.23648500442504883,
+          "ipc_only": 0.0378119982779026,
+          "random": -0.2662630081176758,
+          "yaw_seeker": -0.09867200255393982
+        },
+        "path": "data/processed/transitions/transitions_opt2.parquet",
+        "rows": 43200,
+        "sensor_error": {
+          "power": {
+            "bias": 134.13213998017488,
+            "dropout_rate": 0.0018287037037036935,
+            "instrument": "SCADA power transducer",
+            "median_abs_rel_error": 0.0033520918664920662,
+            "rmse": 194827.4971894732
+          },
+          "thrust": {
+            "bias": -351.6584720965006,
+            "dropout_rate": 0.004513888888888928,
+            "instrument": "estimated from strain gauges and rotor state",
+            "median_abs_rel_error": 0.028816736775620064,
+            "rmse": 66912.35394719477
+          },
+          "tower_damage_rate": {
+            "bias": -3.855222451050518e-10,
+            "dropout_rate": 0.009745370370370376,
+            "instrument": "tower-base strain gauge rosette",
+            "median_abs_rel_error": 0.04079544737059364,
+            "rmse": 1.7029527600350703e-07
+          },
+          "turbulence_std": {
+            "bias": -0.003720342309248668,
+            "dropout_rate": 0.010393518518518552,
+            "instrument": "derived from anemometer time series",
+            "median_abs_rel_error": 0.12462690750168284,
+            "rmse": 0.3734481171647991
+          },
+          "wave_hs": {
+            "bias": 0.0021283956430852412,
+            "dropout_rate": 0.01981481481481484,
+            "instrument": "wave radar / nearby buoy",
+            "median_abs_rel_error": 0.08329819926879446,
+            "rmse": 0.4146692284892626
+          },
+          "wave_tp": {
+            "bias": 0.005520132250256008,
+            "dropout_rate": 0.019884259259259296,
+            "instrument": "wave radar spectral estimate",
+            "median_abs_rel_error": 0.04831792316360305,
+            "rmse": 0.8220745989694589
+          },
+          "wind_direction": {
+            "bias": 0.011771642083485521,
+            "dropout_rate": 0.004444444444444473,
+            "instrument": "nacelle wind vane",
+            "median_abs_rel_error": 0.3012680569560252,
+            "rmse": 3.6458336957521595
+          },
+          "wind_speed": {
+            "bias": -0.01193224201047862,
+            "dropout_rate": 0.00462962962962965,
+            "instrument": "nacelle cup anemometer / met mast",
+            "median_abs_rel_error": 0.03266383522635483,
+            "rmse": 0.639493612033968
+          }
+        }
+      },
+      "ref": {
+        "bytes": 9367756,
+        "checks": {
+          "action_ipc_level_within_bounds": true,
+          "action_pitch_offset_deg_within_bounds": true,
+          "action_yaw_setpoint_deg_within_bounds": true,
+          "episodes_with_single_done": true,
+          "failures": [],
+          "max_controllable_share_violation": 2.220446049250313e-16,
+          "max_reward_decomposition_error": 0.0,
+          "missing_measured_channels": [],
+          "n_nan_numeric": 0,
+          "passed": true
+        },
+        "columns": 89,
+        "mean_reward_by_policy": {
+          "baseline": -0.030950000509619713,
+          "feather": -0.24949699640274048,
+          "ipc_only": 0.026280000805854797,
+          "random": -0.25644099712371826,
+          "yaw_seeker": -0.0932300016283989
+        },
+        "path": "data/processed/transitions/transitions_ref.parquet",
+        "rows": 43200,
+        "sensor_error": {
+          "power": {
+            "bias": -608.2872918362087,
+            "dropout_rate": 0.0018287037037036935,
+            "instrument": "SCADA power transducer",
+            "median_abs_rel_error": 0.0033548119229288168,
+            "rmse": 217620.98636626996
+          },
+          "thrust": {
+            "bias": -470.53906226065425,
+            "dropout_rate": 0.004513888888888928,
+            "instrument": "estimated from strain gauges and rotor state",
+            "median_abs_rel_error": 0.028642588111199276,
+            "rmse": 67458.37775364799
+          },
+          "tower_damage_rate": {
+            "bias": -1.4115427569839345e-08,
+            "dropout_rate": 0.009745370370370376,
+            "instrument": "tower-base strain gauge rosette",
+            "median_abs_rel_error": 0.04078629269462236,
+            "rmse": 3.862568090017354e-06
+          },
+          "turbulence_std": {
+            "bias": -0.0033583552348944875,
+            "dropout_rate": 0.010393518518518552,
+            "instrument": "derived from anemometer time series",
+            "median_abs_rel_error": 0.12362820876864061,
+            "rmse": 0.3738940559315504
+          },
+          "wave_hs": {
+            "bias": 0.0008452591155138281,
+            "dropout_rate": 0.01981481481481484,
+            "instrument": "wave radar / nearby buoy",
+            "median_abs_rel_error": 0.08188644186413761,
+            "rmse": 0.4127169011358701
+          },
+          "wave_tp": {
+            "bias": 0.0032043823268678453,
+            "dropout_rate": 0.019884259259259296,
+            "instrument": "wave radar spectral estimate",
+            "median_abs_rel_error": 0.04818486953157516,
+            "rmse": 0.8156932418158505
+          },
+          "wind_direction": {
+            "bias": 0.00546127922551612,
+            "dropout_rate": 0.004444444444444473,
+            "instrument": "nacelle wind vane",
+            "median_abs_rel_error": 0.2894515349139958,
+            "rmse": 3.640185718136717
+          },
+          "wind_speed": {
+            "bias": -0.012451990119836949,
+            "dropout_rate": 0.00462962962962965,
+            "instrument": "nacelle cup anemometer / met mast",
+            "median_abs_rel_error": 0.032472278710439395,
+            "rmse": 0.6388591491646
+          }
+        }
+      }
+    }
+  },
+  "package_version": "0.1.0",
+  "sources": {
+    "floatbench": {
+      "dataset": "DeCoDELab/FLOATBench (Hugging Face)",
+      "license": "CC-BY-4.0",
+      "paper": "arXiv:2605.25717"
+    },
+    "reference_turbine": {
+      "artefacts": [
+        "OpenFAST steady-state operating points",
+        "Cp/Ct/Cq rotor performance surfaces",
+        "IEA-22-280-RWT-Semi_DISCON.IN actuator limits"
+      ],
+      "license": "Apache-2.0",
+      "repository": "IEAWindSystems/IEA-22-280-RWT"
+    }
+  },
+  "zero_action_exactness": {
+    "opt1": {
+      "max_abs_damage_difference": 0.0,
+      "max_abs_ratio_deviation": 0.0,
+      "n_conditions": 6468,
+      "n_sections": 30
+    },
+    "opt2": {
+      "max_abs_damage_difference": 0.0,
+      "max_abs_ratio_deviation": 0.0,
+      "n_conditions": 6468,
+      "n_sections": 30
+    },
+    "passed": true,
+    "ref": {
+      "max_abs_damage_difference": 0.0,
+      "max_abs_ratio_deviation": 0.0,
+      "n_conditions": 6468,
+      "n_sections": 30
+    }
+  }
+}

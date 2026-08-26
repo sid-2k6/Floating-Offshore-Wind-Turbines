@@ -1,0 +1,27 @@
+{
+  "air_density_kgm3": 1.225,
+  "cut_in_wind_speed_ms": 3.0,
+  "cut_out_wind_speed_ms": 25.0,
+  "hub_height_m": 170.0,
+  "optimal_tsr": 9.1532,
+  "properties_source": "https://raw.githubusercontent.com/IEAWindSystems/IEA-22-280-RWT/main/windIO/IEA-22-280-RWT.yaml",
+  "rated_power_w": 22000000.0,
+  "rated_rotor_speed_rpm": 7.061131867192266,
+  "rotor_area_m2": 63347.074266984586,
+  "rotor_diameter_m": 284.0,
+  "rotor_performance_grid": {
+    "n_pitch": 20,
+    "n_tsr": 20,
+    "pitch_deg_range": [
+      -5.0,
+      45.0
+    ],
+    "tsr_range": [
+      2.0,
+      14.0
+    ]
+  },
+  "rotor_performance_source": "https://raw.githubusercontent.com/IEAWindSystems/IEA-22-280-RWT/main/OpenFAST/IEA-22-280-RWT/IEA-22-280-RWT_Cp_Ct_Cq.txt",
+  "source": "IEAWindSystems/IEA-22-280-RWT (Apache-2.0)",
+  "steady_state_source": "https://raw.githubusercontent.com/IEAWindSystems/IEA-22-280-RWT/main/outputs/01_steady_states/OpenFAST/iea-22-280-rwt-steady-states-of.yaml"
+}

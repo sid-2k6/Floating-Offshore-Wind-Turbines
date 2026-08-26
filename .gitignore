@@ -1,0 +1,20 @@
+# Raw third-party downloads (regenerate with the scripts in scripts/)
+data/raw/
+data/_scratch/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Notebooks / editors
+.ipynb_checkpoints/
+.DS_Store

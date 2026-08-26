@@ -1,0 +1,190 @@
+{
+  "action_space": {
+    "ipc_level_bounds": [
+      0.0,
+      1.0
+    ],
+    "limits": {
+      "max_pitch_deg": 90.0,
+      "min_pitch_deg": -4.01,
+      "pitch_rate_deg_s": 2.0,
+      "yaw_deadband_deg": 8.0,
+      "yaw_rate_deg_s": 0.4985
+    },
+    "max_ipc_level_change": 0.5,
+    "max_pitch_offset_change_deg": 4.0,
+    "max_yaw_setpoint_change_deg": 15.0,
+    "pitch_offset_bounds": [
+      0.0,
+      8.0
+    ],
+    "yaw_setpoint_bounds": [
+      -30.0,
+      30.0
+    ]
+  },
+  "authority": {
+    "ipc_authority": 0.3,
+    "yaw_cyclic_gain": 1.5
+  },
+  "duty": {
+    "ipc_duty_weight": 1.0,
+    "pitch_hold_weight": 0.1,
+    "pitch_travel_weight": 1.0,
+    "yaw_engagement_weight": 1.0
+  },
+  "episodes": {
+    "direction_clip_deg": 45.0,
+    "direction_correlation_hours": 2.0,
+    "direction_std_deg": 12.0,
+    "episodes_per_tower": 1200,
+    "grid_persistence": 0.55,
+    "policy_weights": {
+      "baseline": 0.2,
+      "feather": 0.15,
+      "ipc_only": 0.15,
+      "random": 0.4,
+      "yaw_seeker": 0.1
+    },
+    "seed": 20260826,
+    "step_seconds": 600.0,
+    "steps_per_episode": 36,
+    "vane_bias_std_deg": 2.5
+  },
+  "iot": {
+    "channels": [
+      {
+        "bias_std": 0.2,
+        "channel": "wind_speed",
+        "drift_std_per_step": 0.01,
+        "dropout_probability": 0.005,
+        "instrument": "nacelle cup anemometer / met mast",
+        "latency_steps": 0,
+        "noise_relative": 0.03,
+        "noise_std": 0.4,
+        "quantisation": 0.1
+      },
+      {
+        "bias_std": 0.05,
+        "channel": "turbulence_std",
+        "drift_std_per_step": 0.0,
+        "dropout_probability": 0.01,
+        "instrument": "derived from anemometer time series",
+        "latency_steps": 1,
+        "noise_relative": 0.08,
+        "noise_std": 0.15,
+        "quantisation": 0.05
+      },
+      {
+        "bias_std": 2.0,
+        "channel": "wind_direction",
+        "drift_std_per_step": 0.05,
+        "dropout_probability": 0.005,
+        "instrument": "nacelle wind vane",
+        "latency_steps": 0,
+        "noise_relative": 0.0,
+        "noise_std": 3.0,
+        "quantisation": 1.0
+      },
+      {
+        "bias_std": 0.08,
+        "channel": "wave_hs",
+        "drift_std_per_step": 0.0,
+        "dropout_probability": 0.02,
+        "instrument": "wave radar / nearby buoy",
+        "latency_steps": 1,
+        "noise_relative": 0.05,
+        "noise_std": 0.15,
+        "quantisation": 0.05
+      },
+      {
+        "bias_std": 0.2,
+        "channel": "wave_tp",
+        "drift_std_per_step": 0.0,
+        "dropout_probability": 0.02,
+        "instrument": "wave radar spectral estimate",
+        "latency_steps": 1,
+        "noise_relative": 0.03,
+        "noise_std": 0.5,
+        "quantisation": 0.1
+      },
+      {
+        "bias_std": 0.0,
+        "channel": "tower_damage_rate",
+        "drift_std_per_step": 0.0,
+        "dropout_probability": 0.01,
+        "instrument": "tower-base strain gauge rosette",
+        "latency_steps": 0,
+        "noise_relative": 0.06,
+        "noise_std": 0.0,
+        "quantisation": 0.0
+      },
+      {
+        "bias_std": 0.0,
+        "channel": "thrust",
+        "drift_std_per_step": 0.0,
+        "dropout_probability": 0.005,
+        "instrument": "estimated from strain gauges and rotor state",
+        "latency_steps": 0,
+        "noise_relative": 0.04,
+        "noise_std": 10000.0,
+        "quantisation": 0.0
+      },
+      {
+        "bias_std": 0.0,
+        "channel": "power",
+        "drift_std_per_step": 0.0,
+        "dropout_probability": 0.002,
+        "instrument": "SCADA power transducer",
+        "latency_steps": 0,
+        "noise_relative": 0.005,
+        "noise_std": 0.0,
+        "quantisation": 10000.0
+      }
+    ],
+    "dropout_scale": 1.0,
+    "enabled": true,
+    "seed": 20260826,
+    "severity": 1.0
+  },
+  "load_model": {
+    "damping_ratio_grid": [
+      0.005,
+      0.01,
+      0.02,
+      0.05,
+      0.1,
+      0.2
+    ],
+    "weight_exponent_grid": [
+      0.0,
+      0.16666666666666666,
+      0.3333333333333333,
+      0.5,
+      0.6666666666666666
+    ],
+    "wohler_exponent": 3.0
+  },
+  "reward": {
+    "duty_weight": 0.05,
+    "fatigue_section": "max",
+    "fatigue_weight": 2.0,
+    "power_weight": 1.0,
+    "severity_clip": 2.0,
+    "severity_reference_percentile": 90.0,
+    "severity_weighting": true
+  },
+  "sweep": {
+    "condition_fraction": 1.0,
+    "enabled": true,
+    "n_ipc": 3,
+    "n_pitch": 5,
+    "n_yaw": 5,
+    "seed": 20260826
+  },
+  "towers": [
+    "ref",
+    "opt1",
+    "opt2"
+  ]
+}

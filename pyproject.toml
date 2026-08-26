@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fowt-rl"
+version = "0.1.0"
+description = "Physics-informed reinforcement-learning dataset for floating offshore wind turbine tower load relief, built on FLOATBench"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+keywords = [
+    "floating offshore wind",
+    "reinforcement learning",
+    "structural fatigue",
+    "load mitigation",
+    "FLOATBench",
+    "OpenFAST",
+]
+dependencies = [
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "pyarrow>=14.0",
+    "scipy>=1.10",
+    "huggingface_hub>=0.20",
+]
+
+[project.optional-dependencies]
+gym = ["gymnasium>=0.29"]
+dev = ["pytest>=7.4", "ruff>=0.4"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["B008"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

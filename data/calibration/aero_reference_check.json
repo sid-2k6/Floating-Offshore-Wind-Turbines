@@ -1,0 +1,44 @@
+{
+  "note": "Absolute values come from the OpenFAST steady states; the performance surface supplies only relative control sensitivity (ratio anchoring), so the errors reported here do not bias the generated dataset.",
+  "pitch_sensitivity": {
+    "V=11": {
+      "ct_base": 0.628935793,
+      "dP_dpitch_MW_per_deg": -0.17655394589801504,
+      "dT_dpitch_kN_per_deg": -187.21719475884643
+    },
+    "V=14": {
+      "ct_base": 0.2604020112,
+      "dP_dpitch_MW_per_deg": -2.340447971393768,
+      "dT_dpitch_kN_per_deg": -228.17360225912742
+    },
+    "V=18": {
+      "ct_base": 0.120146809,
+      "dP_dpitch_MW_per_deg": -3.3404429496260546,
+      "dT_dpitch_kN_per_deg": -226.10956674012215
+    },
+    "V=22": {
+      "ct_base": 0.06731093785,
+      "dP_dpitch_MW_per_deg": -4.205028318307727,
+      "dT_dpitch_kN_per_deg": -226.0566787127714
+    },
+    "V=6": {
+      "ct_base": 0.8399047347,
+      "dP_dpitch_MW_per_deg": 0.0,
+      "dT_dpitch_kN_per_deg": -56.58945689831045
+    },
+    "V=9": {
+      "ct_base": 0.8000354484,
+      "dP_dpitch_MW_per_deg": 0.0,
+      "dT_dpitch_kN_per_deg": -111.53648958067502
+    }
+  },
+  "surface_vs_steady_state": {
+    "cp_mean_abs_rel_error": 0.2827971180784903,
+    "cp_pearson_r": 0.9873965302318293,
+    "ct_mean_abs_rel_error": 0.2759915223543093,
+    "ct_pearson_r": 0.9941763034042778,
+    "n_operating_points": 22
+  },
+  "yaw_power_exponent": 1.88,
+  "yaw_thrust_exponent": 2.0
+}
