@@ -1,12 +1,10 @@
 ,value
-affected_transitions,8500
-affected_fraction,0.06558641975308642
-guard_binds_below_wind_speed_ms,9.6
-max_raw_cp_ratio,1.0485438540305816
-mean_reward_affected,0.05848271772265434
-mean_reward_unaffected,-0.16675683856010437
-mean_power_loss_affected,0.009744902141392231
-mean_fatigue_relief_affected,0.06621076911687851
-feather_policy_6_12ms_affected_fraction,0.5027488151658768
-feather_policy_6_12ms_mean_reward,0.13077597320079803
-affected_share_by_wind_band_pct,"{'3-6': 6.395707413346491, '6-9': 34.176116325755515, '9-12': 6.263452432199741, '12-16': 0.0, '16-20': 0.0, '20-25': 0.0}"
+status,FIXED - verified against current aero.response()
+historical_affected_fraction_before_fix,0.066
+historical_max_raw_cp_ratio_before_fix,1.0485438540305816
+affected_transitions_after_fix,6
+affected_fraction_after_fix,4.6296296296296294e-05
+affected_share_by_wind_band_pct_after_fix,"{'3-6': 0.01804511278195489, '6-9': 0.0, '9-12': 0.016301689941857305, '12-16': 0.0, '16-20': 0.0, '20-25': 0.0}"
+worst_power_increase_w_dense_sweep,0.0
+worst_thrust_increase_n_dense_sweep,0.0
+feather_policy_6_12ms_free_relief_fraction_after_fix,0.0

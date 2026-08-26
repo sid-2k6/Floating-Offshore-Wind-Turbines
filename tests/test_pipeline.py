@@ -102,6 +102,48 @@ def test_pitch_sensitivity_is_physically_plausible():
         assert -8.0 < entry["dP_dpitch_MW_per_deg"] < -0.5
 
 
+def test_feathering_never_free_below_rated():
+    """Regression test for the EDA-found artefact (docs/LIMITATIONS.md).
+
+    Below rated, the reference pitch schedule sits below the performance
+    surface's own Cp-optimal pitch at the same TSR. Before the fix, a small
+    positive pitch offset moved *towards* that optimum, so the raw Cp ratio
+    briefly exceeded 1 and the (then-necessary) monotonicity clamp made those
+    offsets cost exactly zero power while still shedding thrust and damage -
+    i.e. free load relief. The fix anchors the ratio on
+    max(pitch_base, cp_optimal_pitch(tsr)) instead of the raw schedule pitch,
+    which removes the free-power region analytically rather than by clamping.
+
+    This test asserts every non-zero feathering offset below rated costs a
+    strictly positive amount of power - not just "no more than baseline".
+    """
+    aero = load_aero(write_report=False)
+    winds = np.linspace(4.0, 10.5, 14)  # below the ~11 m/s rated wind speed
+    offsets = np.array([0.5, 1.0, 2.0, 4.0, 6.0, 8.0])
+
+    for wind in winds:
+        base_power = aero.response(np.array([wind]), 0.0, 0.0)["electrical_power_w"][0]
+        for offset in offsets:
+            power = aero.response(np.array([wind]), offset, 0.0)["electrical_power_w"][0]
+            assert power < base_power - 1.0, (
+                f"V={wind:.1f} m/s, offset={offset:.1f} deg: power {power:.1f} W is not "
+                f"strictly below baseline {base_power:.1f} W - free feathering artefact"
+            )
+
+
+def test_thrust_and_power_strictly_decrease_with_feathering_dense():
+    """Dense sweep: thrust and power must be non-increasing in pitch offset
+    everywhere on the operating envelope, with no local free-relief region."""
+    aero = load_aero(write_report=False)
+    winds = np.linspace(3.0, 25.0, 45)
+    offsets = np.linspace(0.0, 8.0, 41)
+
+    for wind in winds:
+        response = aero.response(np.full_like(offsets, wind), offsets, 0.0)
+        assert np.all(np.diff(response["thrust_n"]) <= 1e-6), f"thrust rose at V={wind:.1f}"
+        assert np.all(np.diff(response["electrical_power_w"]) <= 1e-6), f"power rose at V={wind:.1f}"
+
+
 # ---------------------------------------------------------------------------
 # Action space and duty
 # ---------------------------------------------------------------------------
@@ -231,6 +273,46 @@ def test_section_summary_consistency():
     assert np.all(summary["damage_max"] >= summary["damage_mean"])
     assert np.all(summary["damage_sum"] >= summary["damage_max"])
     assert np.all((summary["damage_argmax_section"] >= 1) & (summary["damage_argmax_section"] <= 30))
+
+
+@requires_floatbench
+def test_governing_section_differs_by_tower_design():
+    """Regression test for the EDA finding (docs/LIMITATIONS.md).
+
+    The fatigue-aware re-design moved the governing (lifetime-worst) tower
+    cross-section from the base on `ref` to the top on `opt1`/`opt2`. Any
+    reduction that assumes a fixed section - e.g. always the base - would be
+    wrong on the re-designed towers. This test locks in that the pipeline's
+    section reduction is genuinely computed per tower (via `damage.max(axis=1)`
+    in `summarise_sections`), not hardcoded, by checking it reproduces the
+    known base-vs-top split.
+    """
+    governing_section = {}
+    for tower in TOWERS:
+        if not (default_raw_dir() / tower / "data.csv").exists():
+            pytest.skip(f"{tower} not downloaded")
+        tower_data = load_tower(tower)
+        weight = tower_data.conditions["damage_weight"].to_numpy(dtype=float)
+        lifetime_damage = (tower_data.damage * weight[:, None]).sum(axis=0)
+        governing_section[tower] = int(np.argmax(lifetime_damage)) + 1
+
+    assert governing_section["ref"] == 1, "ref should be base-critical (section 1)"
+    for tower in ("opt1", "opt2"):
+        if tower in governing_section:
+            assert governing_section[tower] >= 25, (
+                f"{tower} should be top-critical after the fatigue-aware "
+                f"re-design, got section {governing_section[tower]}"
+            )
+
+    # And confirm the reward-facing reduction ("max" over sections) actually
+    # picks up whichever section governs for that tower/condition, rather than
+    # silently defaulting to a fixed index.
+    tower_data = load_tower(TOWER)
+    summary = summarise_sections(tower_data.damage)
+    per_condition_argmax = summary["damage_argmax_section"]
+    assert per_condition_argmax.min() != per_condition_argmax.max(), (
+        "the governing section should vary across conditions, not be fixed"
+    )
 
 
 # ---------------------------------------------------------------------------

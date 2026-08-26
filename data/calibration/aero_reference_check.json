@@ -3,8 +3,8 @@
   "pitch_sensitivity": {
     "V=11": {
       "ct_base": 0.628935793,
-      "dP_dpitch_MW_per_deg": -0.17655394589801504,
-      "dT_dpitch_kN_per_deg": -187.21719475884643
+      "dP_dpitch_MW_per_deg": -0.9297257685467191,
+      "dT_dpitch_kN_per_deg": -219.73444130977524
     },
     "V=14": {
       "ct_base": 0.2604020112,
@@ -23,13 +23,13 @@
     },
     "V=6": {
       "ct_base": 0.8399047347,
-      "dP_dpitch_MW_per_deg": 0.0,
-      "dT_dpitch_kN_per_deg": -56.58945689831045
+      "dP_dpitch_MW_per_deg": -0.006529829983380158,
+      "dT_dpitch_kN_per_deg": -64.6850530679978
     },
     "V=9": {
       "ct_base": 0.8000354484,
-      "dP_dpitch_MW_per_deg": 0.0,
-      "dT_dpitch_kN_per_deg": -111.53648958067502
+      "dP_dpitch_MW_per_deg": -0.018163722702331842,
+      "dT_dpitch_kN_per_deg": -138.65326073853998
     }
   },
   "surface_vs_steady_state": {

@@ -2,8 +2,8 @@
   "aero_pitch_sensitivity": {
     "V=11": {
       "ct_base": 0.628935793,
-      "dP_dpitch_MW_per_deg": -0.17655394589801504,
-      "dT_dpitch_kN_per_deg": -187.21719475884643
+      "dP_dpitch_MW_per_deg": -0.9297257685467191,
+      "dT_dpitch_kN_per_deg": -219.73444130977524
     },
     "V=14": {
       "ct_base": 0.2604020112,
@@ -22,13 +22,13 @@
     },
     "V=6": {
       "ct_base": 0.8399047347,
-      "dP_dpitch_MW_per_deg": 0.0,
-      "dT_dpitch_kN_per_deg": -56.58945689831045
+      "dP_dpitch_MW_per_deg": -0.006529829983380158,
+      "dT_dpitch_kN_per_deg": -64.6850530679978
     },
     "V=9": {
       "ct_base": 0.8000354484,
-      "dP_dpitch_MW_per_deg": 0.0,
-      "dT_dpitch_kN_per_deg": -111.53648958067502
+      "dP_dpitch_MW_per_deg": -0.018163722702331842,
+      "dT_dpitch_kN_per_deg": -138.65326073853998
     }
   },
   "aero_reference_check": {
@@ -38,7 +38,7 @@
     "ct_pearson_r": 0.9941763034042778,
     "n_operating_points": 22
   },
-  "build_seconds": 17.03,
+  "build_seconds": 11.15,
   "calibration": {
     "opt1": {
       "basis_names": [
@@ -721,30 +721,30 @@
   },
   "dataset_summary": {
     "behaviour_policy_counts": {
-      "baseline": 25524,
-      "feather": 20340,
-      "ipc_only": 19800,
-      "random": 51084,
-      "yaw_seeker": 12852
+      "baseline": 26244,
+      "feather": 19656,
+      "ipc_only": 20052,
+      "random": 50220,
+      "yaw_seeker": 13428
     },
     "controllable_share_max_section": {
-      "mean": 0.3133043050765991,
-      "p05": 0.012846864759922028,
-      "p95": 0.8702789545059204
+      "mean": 0.31719595193862915,
+      "p05": 0.013183945789933205,
+      "p95": 0.8701840043067932
     },
     "del_ratio": {
-      "max": 1.3170042037963867,
-      "median": 0.9985703229904175,
-      "min": 0.5237601399421692,
-      "p05": 0.8439375936985016
+      "max": 1.300155520439148,
+      "median": 0.9984468221664429,
+      "min": 0.48793038725852966,
+      "p05": 0.8393625766038895
     },
     "episodes": 3600,
     "reward": {
-      "fraction_positive": 0.19739969135802468,
-      "max": 0.7068828344345093,
-      "mean": -0.15198419988155365,
-      "min": -1.0257551670074463,
-      "std": 0.29411983489990234
+      "fraction_positive": 0.19307098765432099,
+      "max": 0.5610328912734985,
+      "mean": -0.14779844880104065,
+      "min": -1.0250740051269531,
+      "std": 0.28807634115219116
     },
     "simulated_hours": 21600.0,
     "step_seconds": 600.0,
@@ -756,7 +756,7 @@
       "ref"
     ]
   },
-  "generated_utc": "2026-08-26T04:30:17Z",
+  "generated_utc": "2026-08-26T13:07:15Z",
   "observation_manifest": {
     "actions": [
       "action_pitch_offset_deg",
@@ -843,19 +843,19 @@
   "outputs": {
     "action_sweep": {
       "opt1": {
-        "bytes": 7851161,
+        "bytes": 7854039,
         "columns": 27,
         "path": "data/processed/action_sweep/action_sweep_opt1.parquet",
         "rows": 485100
       },
       "opt2": {
-        "bytes": 7851255,
+        "bytes": 7850809,
         "columns": 27,
         "path": "data/processed/action_sweep/action_sweep_opt2.parquet",
         "rows": 485100
       },
       "ref": {
-        "bytes": 7873226,
+        "bytes": 7872233,
         "columns": 27,
         "path": "data/processed/action_sweep/action_sweep_ref.parquet",
         "rows": 485100
@@ -868,14 +868,14 @@
         "rows": 2000
       },
       "transitions": {
-        "bytes": 1434094,
+        "bytes": 1436431,
         "path": "data/processed/samples/transitions_sample.csv",
         "rows": 2000
       }
     },
     "transitions": {
       "opt1": {
-        "bytes": 9416769,
+        "bytes": 9375830,
         "checks": {
           "action_ipc_level_within_bounds": true,
           "action_pitch_offset_deg_within_bounds": true,
@@ -890,82 +890,82 @@
         },
         "columns": 89,
         "mean_reward_by_policy": {
-          "baseline": -0.029694000259041786,
-          "feather": -0.23269400000572205,
-          "ipc_only": 0.029047999531030655,
-          "random": -0.2658640146255493,
-          "yaw_seeker": -0.08294399827718735
+          "baseline": -0.03423900157213211,
+          "feather": -0.23670600354671478,
+          "ipc_only": 0.024275999516248703,
+          "random": -0.25188499689102173,
+          "yaw_seeker": -0.09164699912071228
         },
         "path": "data/processed/transitions/transitions_opt1.parquet",
         "rows": 43200,
         "sensor_error": {
           "power": {
-            "bias": -524.1778154811153,
+            "bias": 25.616005113389757,
             "dropout_rate": 0.0018287037037036935,
             "instrument": "SCADA power transducer",
-            "median_abs_rel_error": 0.003349299384407014,
-            "rmse": 252612.54659670917
+            "median_abs_rel_error": 0.003339938862348594,
+            "rmse": 215334.4642875224
           },
           "thrust": {
-            "bias": -247.77124928564936,
+            "bias": -575.6075566403954,
             "dropout_rate": 0.004513888888888928,
             "instrument": "estimated from strain gauges and rotor state",
-            "median_abs_rel_error": 0.02876984707219247,
-            "rmse": 66566.07358140612
+            "median_abs_rel_error": 0.028746961196881457,
+            "rmse": 66324.9753181677
           },
           "tower_damage_rate": {
-            "bias": -1.0362979441994458e-09,
+            "bias": -2.3777427672930538e-09,
             "dropout_rate": 0.009745370370370376,
             "instrument": "tower-base strain gauge rosette",
-            "median_abs_rel_error": 0.04079542329491715,
-            "rmse": 2.330819340059187e-07
+            "median_abs_rel_error": 0.0407947506052968,
+            "rmse": 2.2419997515351342e-07
           },
           "turbulence_std": {
-            "bias": -0.0037210740921673952,
+            "bias": -0.0032896643116449315,
             "dropout_rate": 0.010393518518518552,
             "instrument": "derived from anemometer time series",
-            "median_abs_rel_error": 0.1228546369660869,
-            "rmse": 0.3752000043278015
+            "median_abs_rel_error": 0.12369935472272113,
+            "rmse": 0.373414432612852
           },
           "wave_hs": {
-            "bias": 0.001423867749809115,
+            "bias": 0.003831405291954676,
             "dropout_rate": 0.01981481481481484,
             "instrument": "wave radar / nearby buoy",
-            "median_abs_rel_error": 0.08136011150478313,
-            "rmse": 0.419354614499651
+            "median_abs_rel_error": 0.08335766613687982,
+            "rmse": 0.4130613975801337
           },
           "wave_tp": {
-            "bias": 0.0034137257271342806,
+            "bias": 0.0060690419320706965,
             "dropout_rate": 0.019884259259259296,
             "instrument": "wave radar spectral estimate",
-            "median_abs_rel_error": 0.04831984381334242,
-            "rmse": 0.8196963383907613
+            "median_abs_rel_error": 0.04842762692786771,
+            "rmse": 0.8210133276019156
           },
           "wind_direction": {
-            "bias": 0.010935549041454646,
+            "bias": 0.012166904102798273,
             "dropout_rate": 0.004444444444444473,
             "instrument": "nacelle wind vane",
-            "median_abs_rel_error": 0.302003322169254,
-            "rmse": 3.6450131359895726
+            "median_abs_rel_error": 0.29368929942935407,
+            "rmse": 3.6405841223488125
           },
           "wind_speed": {
-            "bias": -0.01068051865807286,
+            "bias": -0.012418537126095206,
             "dropout_rate": 0.00462962962962965,
             "instrument": "nacelle cup anemometer / met mast",
-            "median_abs_rel_error": 0.03276550515440864,
-            "rmse": 0.6457204731505402
+            "median_abs_rel_error": 0.03266072256900626,
+            "rmse": 0.6420128411655169
           }
         }
       },
       "opt2": {
-        "bytes": 9400466,
+        "bytes": 9389924,
         "checks": {
           "action_ipc_level_within_bounds": true,
           "action_pitch_offset_deg_within_bounds": true,
           "action_yaw_setpoint_deg_within_bounds": true,
           "episodes_with_single_done": true,
           "failures": [],
-          "max_controllable_share_violation": 0.0,
+          "max_controllable_share_violation": 1.1102230246251565e-16,
           "max_reward_decomposition_error": 0.0,
           "missing_measured_channels": [],
           "n_nan_numeric": 0,
@@ -973,75 +973,75 @@
         },
         "columns": 89,
         "mean_reward_by_policy": {
-          "baseline": -0.03679199889302254,
-          "feather": -0.23648500442504883,
-          "ipc_only": 0.0378119982779026,
-          "random": -0.2662630081176758,
-          "yaw_seeker": -0.09867200255393982
+          "baseline": -0.03491099923849106,
+          "feather": -0.21947699785232544,
+          "ipc_only": 0.03802800178527832,
+          "random": -0.2633010149002075,
+          "yaw_seeker": -0.08940999954938889
         },
         "path": "data/processed/transitions/transitions_opt2.parquet",
         "rows": 43200,
         "sensor_error": {
           "power": {
-            "bias": 134.13213998017488,
+            "bias": -236.1997136956674,
             "dropout_rate": 0.0018287037037036935,
             "instrument": "SCADA power transducer",
-            "median_abs_rel_error": 0.0033520918664920662,
-            "rmse": 194827.4971894732
+            "median_abs_rel_error": 0.003356972526737086,
+            "rmse": 200755.77561689512
           },
           "thrust": {
-            "bias": -351.6584720965006,
+            "bias": -377.91053030805455,
             "dropout_rate": 0.004513888888888928,
             "instrument": "estimated from strain gauges and rotor state",
-            "median_abs_rel_error": 0.028816736775620064,
-            "rmse": 66912.35394719477
+            "median_abs_rel_error": 0.02874054806142761,
+            "rmse": 67157.26153273453
           },
           "tower_damage_rate": {
-            "bias": -3.855222451050518e-10,
+            "bias": 3.346529598356175e-10,
             "dropout_rate": 0.009745370370370376,
             "instrument": "tower-base strain gauge rosette",
-            "median_abs_rel_error": 0.04079544737059364,
-            "rmse": 1.7029527600350703e-07
+            "median_abs_rel_error": 0.04077520705345021,
+            "rmse": 1.649923049192924e-07
           },
           "turbulence_std": {
-            "bias": -0.003720342309248668,
+            "bias": -0.0040566545807653,
             "dropout_rate": 0.010393518518518552,
             "instrument": "derived from anemometer time series",
-            "median_abs_rel_error": 0.12462690750168284,
-            "rmse": 0.3734481171647991
+            "median_abs_rel_error": 0.12398424789748393,
+            "rmse": 0.36978585509707473
           },
           "wave_hs": {
-            "bias": 0.0021283956430852412,
+            "bias": 0.0020651706121861935,
             "dropout_rate": 0.01981481481481484,
             "instrument": "wave radar / nearby buoy",
-            "median_abs_rel_error": 0.08329819926879446,
-            "rmse": 0.4146692284892626
+            "median_abs_rel_error": 0.08335766613687982,
+            "rmse": 0.4094148485038883
           },
           "wave_tp": {
-            "bias": 0.005520132250256008,
+            "bias": 0.0014807767227843955,
             "dropout_rate": 0.019884259259259296,
             "instrument": "wave radar spectral estimate",
-            "median_abs_rel_error": 0.04831792316360305,
-            "rmse": 0.8220745989694589
+            "median_abs_rel_error": 0.04891185515851906,
+            "rmse": 0.8237957406585645
           },
           "wind_direction": {
-            "bias": 0.011771642083485521,
+            "bias": 0.011114967461357234,
             "dropout_rate": 0.004444444444444473,
             "instrument": "nacelle wind vane",
-            "median_abs_rel_error": 0.3012680569560252,
-            "rmse": 3.6458336957521595
+            "median_abs_rel_error": 0.2999910667191823,
+            "rmse": 3.6406685944639685
           },
           "wind_speed": {
-            "bias": -0.01193224201047862,
+            "bias": -0.011670847761410254,
             "dropout_rate": 0.00462962962962965,
             "instrument": "nacelle cup anemometer / met mast",
-            "median_abs_rel_error": 0.03266383522635483,
-            "rmse": 0.639493612033968
+            "median_abs_rel_error": 0.032906980738198185,
+            "rmse": 0.635354647429669
           }
         }
       },
       "ref": {
-        "bytes": 9367756,
+        "bytes": 9374531,
         "checks": {
           "action_ipc_level_within_bounds": true,
           "action_pitch_offset_deg_within_bounds": true,
@@ -1056,70 +1056,70 @@
         },
         "columns": 89,
         "mean_reward_by_policy": {
-          "baseline": -0.030950000509619713,
-          "feather": -0.24949699640274048,
-          "ipc_only": 0.026280000805854797,
-          "random": -0.25644099712371826,
-          "yaw_seeker": -0.0932300016283989
+          "baseline": -0.03158000111579895,
+          "feather": -0.2586750090122223,
+          "ipc_only": 0.026441000401973724,
+          "random": -0.2607550024986267,
+          "yaw_seeker": -0.0907140001654625
         },
         "path": "data/processed/transitions/transitions_ref.parquet",
         "rows": 43200,
         "sensor_error": {
           "power": {
-            "bias": -608.2872918362087,
+            "bias": 1419.0324550487378,
             "dropout_rate": 0.0018287037037036935,
             "instrument": "SCADA power transducer",
-            "median_abs_rel_error": 0.0033548119229288168,
-            "rmse": 217620.98636626996
+            "median_abs_rel_error": 0.0033470936242988927,
+            "rmse": 223655.59006204922
           },
           "thrust": {
-            "bias": -470.53906226065425,
+            "bias": -323.1359767626833,
             "dropout_rate": 0.004513888888888928,
             "instrument": "estimated from strain gauges and rotor state",
-            "median_abs_rel_error": 0.028642588111199276,
-            "rmse": 67458.37775364799
+            "median_abs_rel_error": 0.028646426529602427,
+            "rmse": 66641.74268816249
           },
           "tower_damage_rate": {
-            "bias": -1.4115427569839345e-08,
+            "bias": -2.3125315467944333e-08,
             "dropout_rate": 0.009745370370370376,
             "instrument": "tower-base strain gauge rosette",
-            "median_abs_rel_error": 0.04078629269462236,
-            "rmse": 3.862568090017354e-06
+            "median_abs_rel_error": 0.04077929218410388,
+            "rmse": 3.765926238020248e-06
           },
           "turbulence_std": {
-            "bias": -0.0033583552348944875,
+            "bias": -0.0038339084052239304,
             "dropout_rate": 0.010393518518518552,
             "instrument": "derived from anemometer time series",
-            "median_abs_rel_error": 0.12362820876864061,
-            "rmse": 0.3738940559315504
+            "median_abs_rel_error": 0.12370681275975465,
+            "rmse": 0.3734860952648052
           },
           "wave_hs": {
-            "bias": 0.0008452591155138281,
+            "bias": 0.0015918399900611904,
             "dropout_rate": 0.01981481481481484,
             "instrument": "wave radar / nearby buoy",
-            "median_abs_rel_error": 0.08188644186413761,
-            "rmse": 0.4127169011358701
+            "median_abs_rel_error": 0.08197579556372928,
+            "rmse": 0.41341792374897685
           },
           "wave_tp": {
-            "bias": 0.0032043823268678453,
+            "bias": 0.004619194534089831,
             "dropout_rate": 0.019884259259259296,
             "instrument": "wave radar spectral estimate",
-            "median_abs_rel_error": 0.04818486953157516,
-            "rmse": 0.8156932418158505
+            "median_abs_rel_error": 0.04839281045011999,
+            "rmse": 0.8196690482062127
           },
           "wind_direction": {
-            "bias": 0.00546127922551612,
+            "bias": 0.00933226470199686,
             "dropout_rate": 0.004444444444444473,
             "instrument": "nacelle wind vane",
-            "median_abs_rel_error": 0.2894515349139958,
-            "rmse": 3.640185718136717
+            "median_abs_rel_error": 0.3013459296383179,
+            "rmse": 3.642634201541821
           },
           "wind_speed": {
-            "bias": -0.012451990119836949,
+            "bias": -0.012056666237336618,
             "dropout_rate": 0.00462962962962965,
             "instrument": "nacelle cup anemometer / met mast",
-            "median_abs_rel_error": 0.032472278710439395,
-            "rmse": 0.6388591491646
+            "median_abs_rel_error": 0.03276550515440864,
+            "rmse": 0.6408250308230016
           }
         }
       }

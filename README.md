@@ -93,18 +93,21 @@ changes with conditions, which is what makes this worth solving with a policy:
 
 | wind speed | baseline | feather | IPC only | mean controllable share |
 |---|---|---|---|---|
-| 0–6 m/s   | −0.006 | **+0.007** | −0.004 | 0.229 |
-| 6–9 m/s   | −0.060 | **+0.128** | +0.073 | 0.650 |
-| 9–12 m/s  | −0.105 | **+0.188** | +0.151 | 0.788 |
-| 12–16 m/s | −0.036 | −0.273 | **+0.040** | 0.452 |
-| 16–20 m/s | **−0.007** | −0.486 | −0.015 | 0.156 |
-| 20+ m/s   | **−0.006** | −0.609 | −0.017 | 0.044 |
+| 0–6 m/s   | −0.006 | **+0.006** | −0.003 | 0.223 |
+| 6–9 m/s   | −0.059 | **+0.142** | +0.081 | 0.659 |
+| 9–12 m/s  | −0.108 | **+0.187** | +0.152 | 0.792 |
+| 12–16 m/s | −0.041 | −0.250 | **+0.032** | 0.448 |
+| 16–20 m/s | **−0.007** | −0.485 | −0.015 | 0.156 |
+| 20+ m/s   | **−0.006** | −0.596 | −0.016 | 0.044 |
 
 Above 16 m/s wave loading dominates, control authority collapses, and the correct
-action is to do nothing. Between 6 and 12 m/s feathering pays for itself. A learned
-policy has to find that structure.
+action is to do nothing. Between 6 and 12 m/s feathering pays for itself, backed by
+a genuinely monotone, correctly-priced power cost at every wind speed (see
+[EDA/EDA_REPORT.md §G](EDA/EDA_REPORT.md) for how an earlier free-feathering
+accounting artefact below rated was found and fixed). A learned policy has to
+find this structure.
 
-Note also that **yaw misalignment makes tower fatigue worse** (damage ratio ≈ 1.27
+Note also that **yaw misalignment makes tower fatigue worse** (damage ratio ≈ 1.39
 at 30°): it lowers mean thrust but raises cyclic loading, and costs power. IPC is the
 only near-free relief, limited by actuator duty.
 
@@ -241,12 +244,14 @@ PYTHONPATH=src python EDA/run_eda.py     # 19 figures, 10 tables, summary_stats.
 
 Confirms clean integrity (0 NaN / 0 infinite / 0 duplicate rows across 129,600
 rows, full grid coverage) and that the control problem is well-posed. It also
-found one material artefact: **below rated, feathering appears free** — the
-reference pitch schedule sits ~1–2° off the performance surface's Cp optimum, so
-6.6 % of transitions (34 % of the 6–9 m/s band) get load relief at essentially
-zero power cost. This inflates feathering economics below 12 m/s. Details and fix
-in [`EDA/EDA_REPORT.md`](EDA/EDA_REPORT.md) §G; nothing above 12 m/s, and no IPC
-or yaw result, is affected.
+**found and drove the fix** for one material artefact: below rated, feathering
+used to appear free — the reference pitch schedule sat ~1–2° off the performance
+surface's Cp optimum, so 6.6 % of transitions (34 % of the 6–9 m/s band) got
+load relief at essentially zero power cost. `fowt_rl.aero.RotorAero._ratios` now
+anchors the ratio on the surface's own Cp-optimal pitch instead, closing this to
+0.005 % (residual sub-0.01° commands below float64 precision). Full account,
+verification and regression tests in [`EDA/EDA_REPORT.md`](EDA/EDA_REPORT.md) §G
+and `docs/LIMITATIONS.md`.
 
 ## Honest scope
 

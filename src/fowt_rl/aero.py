@@ -63,6 +63,12 @@ YAW_THRUST_EXPONENT = 2.0
 _RATIO_FLOOR = 1e-4
 _MAX_RATIO = 3.0
 
+# Number of tsr points used to tabulate the Cp-optimal pitch curve (see
+# `PerformanceSurface.cp_optimal_pitch`). Must be dense enough that linear
+# interpolation between grid points tracks the (nonlinear) true optimum to
+# well under the smallest pitch offset the action space can command.
+_N_TSR_OVERSAMPLE = 2001
+
 
 @dataclass(frozen=True)
 class PerformanceSurface:
@@ -129,6 +135,38 @@ class PerformanceSurface:
     def torque_coefficient(self, pitch_deg, tsr):
         return self._interp(self.cq, pitch_deg, tsr)
 
+    def cp_optimal_pitch(self, tsr):
+        """Blade pitch [deg] that maximises Cp at a given tip-speed ratio.
+
+        Found by dense oversampling on *both* axes, then linearly interpolated
+        over tsr. This is the reference angle used to correct the below-rated
+        pitch mismatch between the steady-state schedule and the performance
+        surface - see `_cp_optimal_pitch_grid` and the docstring of
+        `RotorAero._ratios`.
+
+        Oversampling only the pitch axis while keeping the native 20-point tsr
+        axis is not fine enough: the optimal pitch does not vary linearly
+        across tsr, so linearly interpolating between only 20 (tsr, optimum)
+        pairs can under-shoot the true optimum by more than half a degree
+        between grid columns (empirically up to 0.55 deg here). That residual
+        reopens a smaller version of the free-feathering artefact for query
+        points that fall between native tsr columns. Oversampling the tsr axis
+        too (`_N_TSR_OVERSAMPLE` points) reduces that residual to <0.01 deg.
+        """
+        return np.interp(
+            np.asarray(tsr, dtype=float), self._tsr_fine, self._cp_optimal_pitch_grid
+        )
+
+    def __post_init__(self) -> None:
+        fine_pitch = np.linspace(self.pitch_deg[0], self.pitch_deg[-1], 4001)
+        tsr_fine = np.linspace(self.tsr[0], self.tsr[-1], _N_TSR_OVERSAMPLE)
+        optimal = np.empty(tsr_fine.size, dtype=float)
+        for index, tsr_value in enumerate(tsr_fine):
+            cp_curve = self._interp(self.cp, fine_pitch, np.full_like(fine_pitch, tsr_value))
+            optimal[index] = fine_pitch[int(np.argmax(cp_curve))]
+        object.__setattr__(self, "_tsr_fine", tsr_fine)
+        object.__setattr__(self, "_cp_optimal_pitch_grid", optimal)
+
 
 class RotorAero:
     """Quasi-static rotor response to collective pitch and yaw, ratio-anchored."""
@@ -145,29 +183,59 @@ class RotorAero:
 
     # ------------------------------------------------------------------
     def _ratios(self, wind_speed, pitch_offset_deg):
-        """Relative Ct / Cp change caused by a collective pitch offset."""
+        """Relative Ct / Cp change caused by a collective pitch offset.
+
+        Below rated, the reference steady-state schedule (which includes peak
+        shaving) sits *below* the performance surface's own Cp-optimal pitch at
+        the same tip-speed ratio - the two official artefacts were produced by
+        different solver configurations and disagree along the pitch axis, not
+        just in overall level. Ratio-anchoring on the raw schedule pitch would
+        then let a positive (feathering) offset move *towards* the surface's
+        optimum, so Ct/Cp momentarily rise before falling - i.e. a "free" load
+        reduction, which is not physical for a tuned controller under any
+        aerodynamic model.
+
+        The fix is to anchor the ratio on the *effective* reference pitch
+
+            pitch_ref = max(pitch_base, cp_optimal_pitch(tsr))
+
+        instead of the raw schedule pitch. This is equivalent to defining the
+        commanded action as an offset from whichever is more feathered: the
+        real controller's schedule, or the surface's own optimum. Because
+        `cp_optimal_pitch <= pitch_base` above rated (verified over the full
+        22-point schedule), `pitch_ref == pitch_base` there and behaviour is
+        unchanged; below rated the correction removes the free-power region
+        entirely, so Ct and Cp are then monotonically non-increasing in the
+        offset by construction and no post-hoc clamping is needed.
+
+        Absolute thrust and power still come from the schedule at
+        `pitch_offset_deg = 0` (ratio = 1 there by definition), so the
+        zero-action exactness of the pipeline is unaffected.
+        """
         tsr = self.schedule.tip_speed_ratio(wind_speed)
         pitch_base = self.schedule.pitch_deg(wind_speed)
-        pitch_act = pitch_base + np.asarray(pitch_offset_deg, dtype=float)
+        pitch_offset_deg = np.asarray(pitch_offset_deg, dtype=float)
 
-        ct_base = self.surface.thrust_coefficient(pitch_base, tsr)
-        cp_base = self.surface.power_coefficient(pitch_base, tsr)
+        pitch_ref = np.maximum(pitch_base, self.surface.cp_optimal_pitch(tsr))
+        pitch_act = pitch_ref + pitch_offset_deg
+
+        ct_ref = self.surface.thrust_coefficient(pitch_ref, tsr)
+        cp_ref = self.surface.power_coefficient(pitch_ref, tsr)
         ct_act = self.surface.thrust_coefficient(pitch_act, tsr)
         cp_act = self.surface.power_coefficient(pitch_act, tsr)
 
         # Negative tabulated Cp means the rotor is no longer producing torque.
-        ct_ratio = np.clip(ct_act / np.maximum(ct_base, _RATIO_FLOOR), 0.0, _MAX_RATIO)
+        ct_ratio = np.clip(ct_act / np.maximum(ct_ref, _RATIO_FLOOR), 0.0, _MAX_RATIO)
         cp_ratio = np.clip(
-            np.maximum(cp_act, 0.0) / np.maximum(cp_base, _RATIO_FLOOR), 0.0, _MAX_RATIO
+            np.maximum(cp_act, 0.0) / np.maximum(cp_ref, _RATIO_FLOOR), 0.0, _MAX_RATIO
         )
 
-        # Monotonicity guard. Below rated, the reference pitch schedule and the
-        # performance surface do not place the Cp optimum at exactly the same
-        # pitch angle (different solvers, and the reference schedule includes
-        # peak shaving). Left unguarded that mismatch would let a positive pitch
-        # offset *increase* power, which is not physical for a tuned controller.
-        # Feathering must never gain power or thrust.
-        feathering = np.asarray(pitch_offset_deg, dtype=float) >= 0.0
+        # Numerical safety net only: pitch_ref already guarantees monotonicity
+        # analytically (see docstring), but bilinear interpolation error near
+        # the grid boundary could in principle produce a ratio infinitesimally
+        # above 1. Clamp defensively; this should bind at machine precision at
+        # most, never trade off a physical amount of power or thrust.
+        feathering = pitch_offset_deg >= 0.0
         cp_ratio = np.where(feathering, np.minimum(cp_ratio, 1.0), cp_ratio)
         ct_ratio = np.where(feathering, np.minimum(ct_ratio, 1.0), ct_ratio)
         return ct_ratio, cp_ratio, tsr, pitch_base
