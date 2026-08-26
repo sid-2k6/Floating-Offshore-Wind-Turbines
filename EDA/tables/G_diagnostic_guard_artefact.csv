@@ -1,0 +1,12 @@
+,value
+affected_transitions,8500
+affected_fraction,0.06558641975308642
+guard_binds_below_wind_speed_ms,9.6
+max_raw_cp_ratio,1.0485438540305816
+mean_reward_affected,0.05848271772265434
+mean_reward_unaffected,-0.16675683856010437
+mean_power_loss_affected,0.009744902141392231
+mean_fatigue_relief_affected,0.06621076911687851
+feather_policy_6_12ms_affected_fraction,0.5027488151658768
+feather_policy_6_12ms_mean_reward,0.13077597320079803
+affected_share_by_wind_band_pct,"{'3-6': 6.395707413346491, '6-9': 34.176116325755515, '9-12': 6.263452432199741, '12-16': 0.0, '16-20': 0.0, '20-25': 0.0}"

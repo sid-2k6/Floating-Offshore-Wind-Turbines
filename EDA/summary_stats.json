@@ -1,0 +1,368 @@
+{
+  "A_envelope": {
+    "hs_range": [
+      0.7768452254049174,
+      8.78416534453683
+    ],
+    "tp_range": [
+      6.656819515635804,
+      16.488247753170892
+    ],
+    "turbulence_intensity_p01_p50_p99": [
+      0.11273120772207239,
+      0.1507144346089468,
+      0.34755983707027305
+    ],
+    "wind_speed_range": [
+      3.200570454924179,
+      25.047215464089323
+    ]
+  },
+  "A_source_data": {
+    "opt1": {
+      "damage_max": 1.1942430963313406e-05,
+      "damage_median": 5.318302407448335e-07,
+      "damage_min": 1.13873639822366e-10,
+      "damage_orders_of_magnitude": 5.02066953686899,
+      "fa1_hz": 0.573,
+      "governing_section": 30,
+      "lifetime_damage_base": 0.7638668587928831,
+      "lifetime_damage_top": 1.2772155338185993,
+      "n_conditions": 6468,
+      "n_labels": 194040
+    },
+    "opt2": {
+      "damage_max": 9.09204877188602e-06,
+      "damage_median": 7.399541616336358e-07,
+      "damage_min": 6.291928767628065e-11,
+      "damage_orders_of_magnitude": 5.159877959485414,
+      "fa1_hz": 0.537,
+      "governing_section": 29,
+      "lifetime_damage_base": 0.7811491492938739,
+      "lifetime_damage_top": 0.9316165634216588,
+      "n_conditions": 6468,
+      "n_labels": 194040
+    },
+    "ref": {
+      "damage_max": 0.0001809617266744,
+      "damage_median": 1.8422857397488444e-05,
+      "damage_min": 4.4261876460166414e-10,
+      "damage_orders_of_magnitude": 5.611556909809971,
+      "fa1_hz": 0.336,
+      "governing_section": 1,
+      "lifetime_damage_base": 32.128028984461345,
+      "lifetime_damage_top": 3.4711653268335625,
+      "n_conditions": 6468,
+      "n_labels": 194040
+    }
+  },
+  "B_aero": {
+    "cp_max": 0.4961243587,
+    "ct_range": [
+      0.05282507052,
+      0.8399047347
+    ],
+    "pitch_sensitivity": {
+      "V=11": {
+        "ct_base": 0.628935793,
+        "dP_dpitch_MW_per_deg": -0.17655394589801504,
+        "dT_dpitch_kN_per_deg": -187.21719475884643
+      },
+      "V=14": {
+        "ct_base": 0.2604020112,
+        "dP_dpitch_MW_per_deg": -2.340447971393768,
+        "dT_dpitch_kN_per_deg": -228.17360225912742
+      },
+      "V=18": {
+        "ct_base": 0.120146809,
+        "dP_dpitch_MW_per_deg": -3.3404429496260546,
+        "dT_dpitch_kN_per_deg": -226.10956674012215
+      },
+      "V=22": {
+        "ct_base": 0.06731093785,
+        "dP_dpitch_MW_per_deg": -4.205028318307727,
+        "dT_dpitch_kN_per_deg": -226.0566787127714
+      },
+      "V=7": {
+        "ct_base": 0.8393198193,
+        "dP_dpitch_MW_per_deg": 0.0,
+        "dT_dpitch_kN_per_deg": -71.95648200446857
+      },
+      "V=9": {
+        "ct_base": 0.8000354484,
+        "dP_dpitch_MW_per_deg": 0.0,
+        "dT_dpitch_kN_per_deg": -111.53648958067502
+      }
+    },
+    "rated_wind_speed_ms": 12.0,
+    "surface_vs_steady_state": {
+      "cp_mean_abs_rel_error": 0.2827971180784903,
+      "cp_pearson_r": 0.9873965302318293,
+      "ct_mean_abs_rel_error": 0.2759915223543093,
+      "ct_pearson_r": 0.9941763034042778,
+      "n_operating_points": 22
+    }
+  },
+  "C_calibration": {
+    "opt1": {
+      "controllable_share": {
+        "mean": 0.3226213119172773,
+        "mean_section_1_base": 0.36520972000044016,
+        "mean_section_30_top": 0.12421091459791671,
+        "p05": 0.012657268440607277,
+        "p50": 0.20559324204954343,
+        "p95": 0.8777447292889057
+      },
+      "fit_quality": {
+        "del_median_abs_rel_error": 0.1250900789443612,
+        "max_r2_del": 0.7992663850083439,
+        "mean_r2_damage": 0.6943737326031966,
+        "mean_r2_del": 0.793149533148415,
+        "min_r2_del": 0.7605415523341157,
+        "r2_del_section_1_base": 0.7990005595076717,
+        "r2_del_section_30_top": 0.7605415523341157
+      },
+      "path_share_mean": {
+        "rotor_cyclic": 0.27323335314090075,
+        "thrust_turbulence": 0.049387958776376445,
+        "wave_inertial": 0.1613264890563834,
+        "wave_quasistatic": 0.5160521990263395
+      },
+      "selected_damping_ratio": 0.005,
+      "selected_weight_exponent": 0.3333333333333333
+    },
+    "opt2": {
+      "controllable_share": {
+        "mean": 0.30778275265805216,
+        "mean_section_1_base": 0.35710625577038363,
+        "mean_section_30_top": 0.09009041122540304,
+        "p05": 0.011250329386072623,
+        "p50": 0.1869299969273459,
+        "p95": 0.8648269067341905
+      },
+      "fit_quality": {
+        "del_median_abs_rel_error": 0.12178593611891647,
+        "max_r2_del": 0.8113141312091378,
+        "mean_r2_damage": 0.7157777582243343,
+        "mean_r2_del": 0.8024011924517551,
+        "min_r2_del": 0.7600561887818109,
+        "r2_del_section_1_base": 0.8084457262326206,
+        "r2_del_section_30_top": 0.7600561887818109
+      },
+      "path_share_mean": {
+        "rotor_cyclic": 0.26673581781576966,
+        "thrust_turbulence": 0.04104693484228247,
+        "wave_inertial": 0.17255742471852858,
+        "wave_quasistatic": 0.5196598226234194
+      },
+      "selected_damping_ratio": 0.005,
+      "selected_weight_exponent": 0.3333333333333333
+    },
+    "ref": {
+      "controllable_share": {
+        "mean": 0.21108311766858756,
+        "mean_section_1_base": 0.21524893957975377,
+        "mean_section_30_top": 0.17377213157533863,
+        "p05": 0.006479462767678286,
+        "p50": 0.09482065908242773,
+        "p95": 0.7258344999885097
+      },
+      "fit_quality": {
+        "del_median_abs_rel_error": 0.179702407802454,
+        "max_r2_del": 0.7750315639003196,
+        "mean_r2_damage": 0.553101389064005,
+        "mean_r2_del": 0.731692215214763,
+        "min_r2_del": 0.7201678402353746,
+        "r2_del_section_1_base": 0.7318284735401477,
+        "r2_del_section_30_top": 0.7750315639003196
+      },
+      "path_share_mean": {
+        "rotor_cyclic": 0.21108311766858756,
+        "thrust_turbulence": 0.0,
+        "wave_inertial": 0.21253974475107873,
+        "wave_quasistatic": 0.5763771375803338
+      },
+      "selected_damping_ratio": 0.005,
+      "selected_weight_exponent": 0.3333333333333333
+    }
+  },
+  "D_action_response": {
+    "damage_ratio_max": 2.2133331298828125,
+    "damage_ratio_min": 0.35787004232406616,
+    "ipc_full_mean_damage_ratio": 0.9408217072486877,
+    "n_actions": 75,
+    "n_sweep_rows": 1455300,
+    "pitch_8deg_mean_damage_ratio": 0.9191243648529053,
+    "yaw_30deg_mean_damage_ratio": 1.3909541368484497
+  },
+  "E_rl_dataset": {
+    "best_policy_by_wind_band": {
+      "12-16": "ipc_only",
+      "16-20": "ipc_only",
+      "20-25": "baseline",
+      "3-6": "feather",
+      "6-9": "feather",
+      "9-12": "feather"
+    },
+    "del_ratio": {
+      "max": 1.3170042037963867,
+      "median": 0.9985703229904175,
+      "min": 0.5237601399421692,
+      "p05": 0.8439375936985016
+    },
+    "n_episodes": 3600,
+    "n_transitions": 129600,
+    "reward_by_policy": {
+      "baseline": {
+        "fraction_positive": 0.0,
+        "mean_del_ratio": 1.019473671913147,
+        "mean_duty": 0.0,
+        "mean_fatigue_relief": -0.0194737296551466,
+        "mean_power_loss": 0.004137822426855564,
+        "mean_reward": -0.03253792226314545,
+        "n": 25524,
+        "std_reward": 0.051685091108083725
+      },
+      "feather": {
+        "fraction_positive": 0.2953294001966568,
+        "mean_del_ratio": 0.9491048455238342,
+        "mean_duty": 0.22690941393375397,
+        "mean_fatigue_relief": 0.05089515075087547,
+        "mean_power_loss": 0.3042781352996826,
+        "mean_reward": -0.2394862323999405,
+        "n": 20340,
+        "std_reward": 0.33063921332359314
+      },
+      "ipc_only": {
+        "fraction_positive": 0.4637373737373737,
+        "mean_del_ratio": 0.9679540395736694,
+        "mean_duty": 0.23994599282741547,
+        "mean_fatigue_relief": 0.03204593062400818,
+        "mean_power_loss": 0.004133492708206177,
+        "mean_reward": 0.031089358031749725,
+        "n": 19800,
+        "std_reward": 0.06757170706987381
+      },
+      "random": {
+        "fraction_positive": 0.18571372641140083,
+        "mean_del_ratio": 0.9669191241264343,
+        "mean_duty": 0.23546530306339264,
+        "mean_fatigue_relief": 0.03308088332414627,
+        "mean_power_loss": 0.3012439012527466,
+        "mean_reward": -0.2630145251750946,
+        "n": 51084,
+        "std_reward": 0.36488983035087585
+      },
+      "yaw_seeker": {
+        "fraction_positive": 0.07057267351384998,
+        "mean_del_ratio": 1.0288797616958618,
+        "mean_duty": 0.0906975045800209,
+        "mean_fatigue_relief": -0.028879737481474876,
+        "mean_power_loss": 0.04362122714519501,
+        "mean_reward": -0.0914439931511879,
+        "n": 12852,
+        "std_reward": 0.11408969759941101
+      }
+    },
+    "reward_overall": {
+      "fraction_positive": 0.19739969135802468,
+      "max": 0.7068828344345093,
+      "mean": -0.15198419988155365,
+      "min": -1.0257551670074463,
+      "std": 0.29411983489990234
+    },
+    "simulated_hours": 21600.0,
+    "steps_per_episode": 36,
+    "yaw_error_abs_mean_baseline_policy": 3.4815146923065186
+  },
+  "F_iot_and_quality": {
+    "coverage": {
+      "available_per_tower": 6468,
+      "hs_ids": 7,
+      "seeds": 6,
+      "tp_ids": 7,
+      "unique_sims_used": 6468,
+      "wind_ids": 22
+    },
+    "degraded_step_fraction": 0.073125,
+    "integrity": {
+      "NaN values": 0,
+      "duplicate rows": 0,
+      "episodes": 3600,
+      "episodes with 1 done": 3600,
+      "infinite values": 0,
+      "numeric columns": 87,
+      "rows": 129600
+    },
+    "sensor_error": {
+      "power": {
+        "bias": -332.77764892578125,
+        "dropout_rate_pct": 0.18287037037036935,
+        "median_abs_rel_error_pct": 0.33522123098373413,
+        "rmse": 222957.203125
+      },
+      "thrust": {
+        "bias": -356.6562805175781,
+        "dropout_rate_pct": 0.45138888888889284,
+        "median_abs_rel_error_pct": 2.8746609687805176,
+        "rmse": 66979.9375
+      },
+      "tower_damage_rate": {
+        "bias": -5.179081608019942e-09,
+        "dropout_rate_pct": 0.9745370370370376,
+        "median_abs_rel_error_pct": 4.079456806182861,
+        "rmse": 2.236273758171592e-06
+      },
+      "turbulence_std": {
+        "bias": -0.003599923336878419,
+        "dropout_rate_pct": 1.0393518518518552,
+        "median_abs_rel_error_pct": 12.370680809020996,
+        "rmse": 0.37418147921562195
+      },
+      "wave_hs": {
+        "bias": 0.0014658408472314477,
+        "dropout_rate_pct": 1.981481481481484,
+        "median_abs_rel_error_pct": 8.221715927124023,
+        "rmse": 0.4155896008014679
+      },
+      "wave_tp": {
+        "bias": 0.004046080633997917,
+        "dropout_rate_pct": 1.9884259259259296,
+        "median_abs_rel_error_pct": 4.8279709815979,
+        "rmse": 0.8191589713096619
+      },
+      "wind_direction": {
+        "bias": 0.009389491751790047,
+        "dropout_rate_pct": 0.4444444444444473,
+        "median_abs_rel_error_pct": 29.771848678588867,
+        "rmse": 3.6436784267425537
+      },
+      "wind_speed": {
+        "bias": -0.011688249185681343,
+        "dropout_rate_pct": 0.462962962962965,
+        "median_abs_rel_error_pct": 3.265760898590088,
+        "rmse": 0.6413652300834656
+      }
+    }
+  },
+  "G_diagnostics": {
+    "affected_fraction": 0.06558641975308642,
+    "affected_share_by_wind_band_pct": {
+      "12-16": 0.0,
+      "16-20": 0.0,
+      "20-25": 0.0,
+      "3-6": 6.395707413346491,
+      "6-9": 34.176116325755515,
+      "9-12": 6.263452432199741
+    },
+    "affected_transitions": 8500,
+    "feather_policy_6_12ms_affected_fraction": 0.5027488151658768,
+    "feather_policy_6_12ms_mean_reward": 0.13077597320079803,
+    "guard_binds_below_wind_speed_ms": 9.6,
+    "max_raw_cp_ratio": 1.0485438540305816,
+    "mean_fatigue_relief_affected": 0.06621076911687851,
+    "mean_power_loss_affected": 0.009744902141392231,
+    "mean_reward_affected": 0.05848271772265434,
+    "mean_reward_unaffected": -0.16675683856010437
+  }
+}

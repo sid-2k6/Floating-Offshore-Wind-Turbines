@@ -229,8 +229,24 @@ yaw control.
 
 ## Documentation
 
+- [`EDA/EDA_REPORT.md`](EDA/EDA_REPORT.md) — 19-figure exploratory analysis with per-use-case verdicts
 - [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md) — full derivation, equations, provenance
 - [`docs/LIMITATIONS.md`](docs/LIMITATIONS.md) — **read before publishing any result**
+
+## Exploratory data analysis
+
+```bash
+PYTHONPATH=src python EDA/run_eda.py     # 19 figures, 10 tables, summary_stats.json
+```
+
+Confirms clean integrity (0 NaN / 0 infinite / 0 duplicate rows across 129,600
+rows, full grid coverage) and that the control problem is well-posed. It also
+found one material artefact: **below rated, feathering appears free** — the
+reference pitch schedule sits ~1–2° off the performance surface's Cp optimum, so
+6.6 % of transitions (34 % of the 6–9 m/s band) get load relief at essentially
+zero power cost. This inflates feathering economics below 12 m/s. Details and fix
+in [`EDA/EDA_REPORT.md`](EDA/EDA_REPORT.md) §G; nothing above 12 m/s, and no IPC
+or yaw result, is affected.
 
 ## Honest scope
 

@@ -97,6 +97,43 @@ The rotor-speed assumption matters most: applying +8° pitch would in reality
 change rotor speed and hence `λ`, moving the operating point on the surface. The
 model holds `λ` at its baseline value.
 
+### ⚠ Known artefact: below-rated feathering appears free
+
+Found by the EDA — see [`../EDA/EDA_REPORT.md`](../EDA/EDA_REPORT.md) §G and
+`EDA/figures/G1_diagnostic_guard_artefact.png`.
+
+Below rated, the reference pitch schedule sits ≈1–2° below the Cp optimum of the
+performance surface at the same TSR, because the two official artefacts were
+produced by different solver configurations and the schedule includes peak
+shaving. A positive pitch offset therefore moves *towards* the surface optimum,
+the raw Cp ratio exceeds 1 (up to 1.049), and the monotonicity guard clamps it to
+1.0. The guard correctly prevents free extra power, but it leaves small feathering
+offsets costing **exactly zero** power while still shedding thrust and damage.
+
+Ratio anchoring cancels a multiplicative bias between the two artefacts, but not
+a shift along the pitch axis.
+
+| | |
+|---|---|
+| transitions affected | 8,500 / 129,600 = **6.6 %** |
+| guard binds for offsets | 1–5°, at wind speeds up to **9.6 m/s** |
+| affected by wind band | 3–6: 6 % · **6–9: 34 %** · 9–12: 6 % · above 12: 0 % |
+| mean reward, affected vs unaffected | **+0.059** vs −0.167 |
+| `feather` policy rows in 6–12 m/s affected | **50 %** |
+
+**Consequence.** The dataset's "feathering is optimal at 6–12 m/s" result is
+partly artefactual, and an agent will exploit the artefact in a way that does not
+transfer. Treat feathering economics below ~12 m/s as optimistic.
+
+**Not contaminated:** anything above 12 m/s (0 % affected), including the "do
+nothing above 16 m/s" conclusion; all IPC results; all yaw results; and the
+controllable-share estimates (calibrated at zero action).
+
+**Fix.** Below rated, define the reference pitch as the surface's own `argmax Cp`
+at that TSR instead of the schedule value, so offsets are measured from a
+surface-consistent optimum, positive offsets always cost power, and the guard
+never binds. One function in `fowt_rl/aero.py`, then rebuild.
+
 ## 5. No platform motion or mooring state
 
 FLOATBench's release contains tower-section damage only. Platform 6-DOF motion,
