@@ -1,0 +1,13 @@
+feature,mean_abs_shap_value
+controllable_share_mean,0.05469388630709946
+n1_controllable_damage,0.039729478284921065
+damage_weight,0.03921207990038686
+controllable_share_max_section,0.031501425168055236
+meas_thrust,0.02733987070350367
+meas_power,0.023692305562050247
+meas_wave_hs,0.02094596150819843
+nacelle_yaw_deg,0.018593824737123333
+n1_gov_lifetime_del,0.0160637768353192
+prev_yaw_setpoint_deg,0.014722919603862053
+n1_governing_is_base,0.014505903993189967
+meas_wave_tp,0.0144557239108736
